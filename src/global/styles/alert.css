@@ -1,0 +1,16 @@
+:root {
+  --toastify-color-light: var(--chakra-colors-secondaryBgColorLight);
+  --toastify-color-dark: var(--chakra-colors-secondaryBgColorDark);
+  --toastify-color-progress-light: var(--chakra-colors-accentColor);
+  --toastify-color-progress-dark: var(--chakra-colors-accentColor);
+  --toastify-text-color-light: var(--chakra-colors-mainColorLight);
+  --toastify-text-color-dark: var(--chakra-colors-mainColorDark);
+  --toastify-icon-color-info: var(--chakra-colors-accentColor);
+  --toastify-icon-color-success: var(--chakra-colors-successColorLight);
+  --toastify-icon-color-warning: var(--chakra-colors-accentColor);
+  --toastify-icon-color-error: var(--chakra-colors-errorColorLight);
+  --toastify-color-progress-info: var(--chakra-colors-accentColor);
+  --toastify-color-progress-success: var(--chakra-colors-successColorLight);
+  --toastify-color-progress-warning: var(--chakra-colors-accentColor);
+  --toastify-color-progress-error: var(--chakra-colors-errorColorLight);
+}
