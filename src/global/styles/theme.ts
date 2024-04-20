@@ -12,7 +12,7 @@ export const getTheme = (colorMode: string) => {
   return extendTheme({
     config: {
       initialColorMode: colorMode,
-      useSystemColorMode: true
+      useSystemColorMode: false
     },
     fonts: fonts,
     styles: {

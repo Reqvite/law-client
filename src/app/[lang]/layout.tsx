@@ -5,38 +5,13 @@ import {redirect} from 'next/navigation';
 import {ReactNode} from 'react';
 import AppProviders from '@/global/providers/AppProviders';
 import {getStrapiMedia, getStrapiURL} from '@/shared/api/api-helpers';
-import {fetchAPI} from '@/shared/api/fetch-api';
+import {getGlobal} from '@/shared/api/getGlobal';
+import {DEFAULT_THEME} from '@/shared/const/defaultTheme';
 import {FALLBACK_SEO} from '@/shared/const/fallbackSeo';
 import {PageParams} from '@/shared/types/pageParams';
 import {Alert} from '@/shared/ui/Alert/Alert';
 import {Footer} from '../components/Footer';
 import {Navbar} from '../components/Navbar';
-
-async function getGlobal(lang: string): Promise<any> {
-  const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-
-  if (!token) return null;
-
-  const path = `/global`;
-  const options = {headers: {Authorization: `Bearer ${token}`}};
-
-  const urlParamsObject = {
-    populate: [
-      'seo',
-      'favicon',
-      'seo.metaImage',
-      'navbar.links',
-      'navbar.links.children',
-      'navbar.buttons',
-      'navbar.logo.img',
-      'footer.links',
-      'footer.links.children',
-      'footer.logo.img'
-    ],
-    locale: lang
-  };
-  return await fetchAPI(path, urlParamsObject, options);
-}
 
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
   const meta = await getGlobal(params.lang);
@@ -71,12 +46,10 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
   const global = await getGlobal(params.lang);
   if (!global.data) return null;
   const cookieStore = cookies();
-  const defaultTheme = 'dark';
   const uiColorMode =
-    (cookieStore.get('chakra-ui-color-mode')?.value as 'light' | 'dark') || defaultTheme;
-  const {notificationBanner, navbar, footer} = global.data.attributes;
+    (cookieStore.get('chakra-ui-color-mode')?.value as 'light' | 'dark') || DEFAULT_THEME;
+  const {navbar, footer} = global.data.attributes;
   if (!navbar || !footer) return redirect('/');
-
   const navbarLogoUrl = getStrapiMedia(navbar.logo?.img.data.attributes.url);
   const footerLogoUrl = getStrapiMedia(footer.logo?.img.data.attributes.url);
 
