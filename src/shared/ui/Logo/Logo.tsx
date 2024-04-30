@@ -18,6 +18,7 @@ export const Logo = (props: LogoProps) => {
         alt={'Logo'}
         marginRight={3}
       />
+      <p>{logoText}</p>
     </AppLink>
   );
 };
