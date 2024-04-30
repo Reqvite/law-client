@@ -16,8 +16,7 @@ type AlertProps = {
   duration?: number;
   position?: position;
 };
-export const Alert = (props: AlertProps) => {
-  const {duration = 3000, position = 'top-right', ...otherProps} = props;
+export const Alert = ({duration = 3000, position = 'top-right', ...otherProps}: AlertProps) => {
   const {colorMode} = useColorMode();
 
   return (

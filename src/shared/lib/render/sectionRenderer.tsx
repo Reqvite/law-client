@@ -1,7 +1,9 @@
+import {Hero} from '@/components/Hero';
+
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
-    // case "blocks.hero":
-    //   return <Hero key={index} data={section} />;
+    case 'blocks.hero':
+      return <Hero key={index} data={section} />;
     // case "blocks.submit-form":
     //   return <SubmitForm key={index} data={section} />;
     // case "blocks.subscribe-form":
