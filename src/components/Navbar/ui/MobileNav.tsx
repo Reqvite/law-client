@@ -24,9 +24,10 @@ export const MobileNav = ({links}: MobileNavProps) => {
 
 const MobileNavItem = ({label, children, href, variant}: NavLink) => {
   const {isOpen, onToggle} = useDisclosure();
+  const haveChildren = children.length !== 0;
 
   return (
-    <Stack spacing={4} onClick={children && onToggle}>
+    <Stack spacing={4} onClick={haveChildren ? onToggle : null}>
       <AppLink
         py={2}
         variant={variant}
@@ -36,7 +37,7 @@ const MobileNavItem = ({label, children, href, variant}: NavLink) => {
         display={'flex'}
       >
         <Text fontWeight={600}>{label}</Text>
-        {children && (
+        {haveChildren && (
           <Icon
             as={IoChevronDownCircleOutline}
             transition={'all .25s ease-in-out'}
@@ -55,7 +56,7 @@ const MobileNavItem = ({label, children, href, variant}: NavLink) => {
           borderColor={useColorModeValue('gray.200', 'gray.700')}
           align={'start'}
         >
-          {children &&
+          {haveChildren &&
             children.map((child) => (
               <AppLink variant={variant} key={child.label} py={2} href={child.href}>
                 {child.label}
