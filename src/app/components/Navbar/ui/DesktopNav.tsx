@@ -28,6 +28,7 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
     'var(--chakra-colors-mainColorLight)',
     'var(--chakra-colors-mainColorDark)'
   );
+  console.log(links);
 
   return (
     <Stack direction={'row'} spacing={4}>
@@ -49,7 +50,8 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
                 {navItem.label}
               </Button>
             </PopoverTrigger>
-            {navItem.children && (
+
+            {navItem.children.length !== 0 && (
               <PopoverContent
                 inset={0}
                 border={0}

@@ -17,6 +17,7 @@ export const Logo = ({logoUrl, logoText, isFooter}: LogoProps) => {
         alt={'Logo'}
         marginRight={3}
       />
+      <p>{logoText}</p>
     </AppLink>
   );
 };

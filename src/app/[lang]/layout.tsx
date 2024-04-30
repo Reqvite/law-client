@@ -66,7 +66,7 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
               links={navbar?.links}
               buttons={navbar?.buttons}
               logoUrl={navbarLogoUrl}
-              logoText={navbar?.navbarLogo?.label}
+              logoText={navbar?.logo?.label}
             />
             <Box as="main">{children}</Box>
             <Footer
