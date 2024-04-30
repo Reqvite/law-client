@@ -1,3 +1,5 @@
+import {Hero} from '@/components/Hero';
+
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
     case 'blocks.hero':

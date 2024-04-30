@@ -6,8 +6,7 @@ type LogoProps = {
   logoText?: string | null;
   isFooter?: boolean;
 };
-export const Logo = (props: LogoProps) => {
-  const {logoUrl, logoText, isFooter} = props;
+export const Logo = ({logoUrl, logoText, isFooter}: LogoProps) => {
   return (
     <AppLink variant={'link'} href={`/`}>
       <Image
