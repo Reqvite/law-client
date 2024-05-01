@@ -5,32 +5,22 @@ import {useGetLang} from '@/shared/lib/hooks/useGetLang';
 import {ButtonLink} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
-interface Props {
+type Props = {
   image: any;
   buttons: Array<ButtonLink>;
   description: string | null;
   title: string | null;
   benefits: {id: number; title: string; description: string}[];
-}
-type HeroProps = {
-  data: Props;
 };
 
-export const Hero = ({data}: HeroProps) => {
-  const {title, description, buttons, image} = data;
+export const Hero = ({title, description, buttons, image}: Props) => {
   const lang = useGetLang();
 
-  const imgUrl = getStrapiMedia(image.data.attributes.url);
-  const alt = image.data.attributes.alternativeText || 'Hero image';
+  const imgUrl = getStrapiMedia(image?.data?.attributes?.url);
+  const alt = image?.data?.attributes?.alternativeText || 'Hero image';
 
   return (
-    <Box
-      as="section"
-      minH="140px"
-      h={{base: 'auto', md: '100vh'}}
-      position="relative"
-      overflow={'hidden'}
-    >
+    <Box as="section" minH="140px" h={{base: 'auto', md: '100vh'}} position="relative">
       <Box pt={'32'} position="relative" zIndex={1} h={{base: 'auto', md: '100vh'}}>
         <Flex
           height={'100%'}

@@ -3,6 +3,8 @@ import type {Metadata} from 'next';
 import {cookies} from 'next/headers';
 import {redirect} from 'next/navigation';
 import {ReactNode} from 'react';
+import {Footer} from '@/components/Footer';
+import {Navbar} from '@/components/Navbar';
 import AppProviders from '@/global/providers/AppProviders';
 import {getStrapiMedia, getStrapiURL} from '@/shared/api/api-helpers';
 import {getGlobal} from '@/shared/api/getGlobal';
@@ -10,8 +12,6 @@ import {DEFAULT_THEME} from '@/shared/const/defaultTheme';
 import {FALLBACK_SEO} from '@/shared/const/fallbackSeo';
 import {PageParams} from '@/shared/types/pageParams';
 import {Alert} from '@/shared/ui/Alert/Alert';
-import {Footer} from '../components/Footer';
-import {Navbar} from '../components/Navbar';
 
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
   const meta = await getGlobal(params.lang);
