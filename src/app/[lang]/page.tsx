@@ -1,6 +1,7 @@
 import {getPageBySlug} from '@/shared/api/get-page-by-slug';
 import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
 import {PageProps} from '@/shared/types/pageParams';
+import {Card} from '@/shared/ui/Card/Card';
 
 const urlParamsObject = [
   'sections',
@@ -21,5 +22,10 @@ export default async function Home({params}: PageProps) {
   const sections = contentSections.map((section: any, index: number) =>
     sectionRenderer(section, index)
   );
-  return <>{sections}</>;
+  return (
+    <>
+      {sections}
+      <Card />
+    </>
+  );
 }
