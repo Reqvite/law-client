@@ -23,7 +23,7 @@ interface Props {
   legalLinks: Array<NavLink>;
   socialLinks: Array<NavLink>;
 }
-export const Footer = ({logoUrl, logoText, footerLinks, legalLinks, lang, socialLinks}: Props) => {
+export const Footer = ({logoUrl, logoText, footerLinks, legalLinks, lang}: Props) => {
   return (
     <Box bg="bg.surface">
       <Container as="footer" role="contentinfo" maxW={'8xl'}>

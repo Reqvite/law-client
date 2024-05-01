@@ -28,7 +28,6 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
     'var(--chakra-colors-mainColorLight)',
     'var(--chakra-colors-mainColorDark)'
   );
-  console.log(links);
 
   return (
     <Stack direction={'row'} spacing={4}>

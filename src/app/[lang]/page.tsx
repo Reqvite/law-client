@@ -11,7 +11,10 @@ const urlParamsObject = [
   'sections.checkboxes',
   'sections.submitButton',
   'sections.subscribeButton',
-  'sections.inputSubscribe'
+  'sections.inputSubscribe',
+  'sections.sliders',
+  'sections.sliders.buttons',
+  'sections.sliders.image'
 ];
 
 export default async function Home({params}: PageProps) {
