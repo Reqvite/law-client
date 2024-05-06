@@ -1,22 +1,8 @@
 import {getPageBySlug} from '@/shared/api/get-page-by-slug';
+import {urlParamsObject} from '@/shared/const/pageOptions';
 import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
 import {PageProps} from '@/shared/types/pageParams';
 import {Card} from '@/shared/ui/Card/Card';
-
-const urlParamsObject = [
-  'sections',
-  'sections.benefits',
-  'sections.buttons',
-  'sections.image',
-  'sections.inputs',
-  'sections.checkboxes',
-  'sections.submitButton',
-  'sections.subscribeButton',
-  'sections.inputSubscribe',
-  'sections.sliders',
-  'sections.sliders.buttons',
-  'sections.sliders.image'
-];
 
 const card = {
   variant: 'small',
