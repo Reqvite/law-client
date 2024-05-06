@@ -19,7 +19,7 @@ type Props = {
   };
 };
 
-export const HeroSlider = ({data}: Props): ReactElement => {
+export const HeroSliderSection = ({data}: Props): ReactElement => {
   return (
     <Carousel<SliderType>
       autoplay

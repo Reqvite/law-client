@@ -4,6 +4,6 @@ type Props = GridItemProps & {
   data: any;
 };
 
-export const SomeBlock = (props: Props): ReactElement => {
+export const SomeBlock = (): ReactElement => {
   return <GridItem bg="green"></GridItem>;
 };

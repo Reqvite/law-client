@@ -2,15 +2,15 @@
 import {Box, Center, Flex, Heading, Img, Stack, Text} from '@chakra-ui/react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {useGetLang} from '@/shared/lib/hooks/useGetLang';
-import {ButtonLink} from '@/shared/types/components';
+import {ButtonType} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
 type Props = {
   image: any;
-  buttons: Array<ButtonLink>;
+  buttons: ButtonType[];
   description: string | null;
   title: string | null;
-  benefits: {id: number; title: string; description: string}[];
+  benefits?: {id: number; title: string; description: string}[];
 };
 
 export const Hero = ({title, description, buttons, image}: Props) => {
@@ -40,14 +40,13 @@ export const Hero = ({title, description, buttons, image}: Props) => {
                 {description}
               </Text>
               <Stack direction={{base: 'column', md: 'row'}} mt="10" spacing="4">
-                {buttons.map(({href, label, variant, id, isAnchor}) => (
+                {buttons.map(({href, label, variant, id}) => (
                   <AppLink
                     size="lg"
                     key={id}
                     variant={variant}
                     label={label}
                     lang={lang}
-                    isAnchor={isAnchor}
                     href={href || ''}
                   />
                 ))}

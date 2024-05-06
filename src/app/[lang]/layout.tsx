@@ -68,7 +68,9 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
               logoUrl={navbarLogoUrl}
               logoText={navbar?.logo?.label}
             />
-            <Box as="main">{children}</Box>
+            <Box as="main" pt={'var(--chakra-sizes-headerHeight)'}>
+              {children}
+            </Box>
             <Footer
               lang={params.lang}
               logoUrl={footerLogoUrl}

@@ -30,6 +30,8 @@
         "groups": [["^\\u0000", "^@?\\w", "^[^.]", "^\\."]]
       }
     ],
+    "react/no-children-prop": "warn",
+    "react/display-name": "off",
     "simple-import-sort/exports": "error",
     "no-var": "error",
     "react-refresh/only-export-components": ["warn", {"allowConstantExport": true}],

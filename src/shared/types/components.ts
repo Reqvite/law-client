@@ -14,20 +14,12 @@ export interface SubLink {
   variant: string;
 }
 
-export interface ButtonLink {
-  id: number;
-  href?: string;
-  newTab?: boolean;
-  label: string;
-  variant: string;
-  isAnchor?: boolean;
-}
-
 export interface ButtonType {
   id: string;
   href?: string;
-  text: string;
+  label: string;
   variant: string;
+  newTab?: boolean;
 }
 
 export interface InputType {
