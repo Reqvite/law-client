@@ -2,11 +2,13 @@ import qs from 'qs';
 import {getStrapiURL} from './api-helpers';
 
 export async function fetchAPI(path: string, urlParamsObject = {}, options = {}) {
+  const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
   try {
     const mergedOptions = {
       next: {revalidate: 60},
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`
       },
       ...options
     };

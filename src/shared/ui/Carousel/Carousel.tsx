@@ -5,7 +5,6 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import {Box} from '@chakra-ui/react';
 import {ComponentType} from 'react';
-import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {Swiper, SwiperProps, SwiperSlide} from 'swiper/react';
 
 interface ItemWithId {
@@ -14,7 +13,7 @@ interface ItemWithId {
 
 type Props<T extends ItemWithId> = SwiperProps & {
   items: T[];
-  component: ComponentType<any>;
+  component: ComponentType<T>;
 };
 
 export const Carousel = <T extends ItemWithId>({
@@ -24,15 +23,7 @@ export const Carousel = <T extends ItemWithId>({
 }: Props<T>) => {
   return (
     <Box position="relative" width="full" overflow="hidden">
-      <Swiper
-        navigation
-        loop
-        autoplay
-        pagination={{type: 'fraction'}}
-        modules={[Navigation, Pagination, Autoplay]}
-        className="h-96 w-full rounded-lg"
-        {...otherProps}
-      >
+      <Swiper {...otherProps}>
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             <Component {...item} />

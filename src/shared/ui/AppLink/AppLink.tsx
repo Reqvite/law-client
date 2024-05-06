@@ -4,7 +4,7 @@ import {ReactNode} from 'react';
 import {i18n} from '@/config/i18n/i18n';
 import {useGetLang} from '@/shared/lib/hooks';
 
-interface CustomLinkProps extends ButtonProps {
+export interface CustomLinkProps extends ButtonProps {
   href: string;
   label?: string;
   isAnchor?: boolean;

@@ -1,4 +1,6 @@
+'use client';
 import {ReactElement} from 'react';
+import {Autoplay} from 'swiper/modules';
 import {ButtonType, ImgDataType} from '@/shared/types/components';
 import {Carousel} from '@/shared/ui';
 import {Hero} from './Hero';
@@ -18,5 +20,12 @@ type Props = {
 };
 
 export const HeroSlider = ({data}: Props): ReactElement => {
-  return <Carousel<SliderType> items={data?.sliders || []} component={Hero} />;
+  return (
+    <Carousel<SliderType>
+      autoplay
+      items={data?.sliders || []}
+      modules={[Autoplay]}
+      component={Hero}
+    />
+  );
 };
