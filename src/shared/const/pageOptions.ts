@@ -11,5 +11,7 @@ export const urlParamsObject = [
   'sections.inputSubscribe',
   'sections.sliders',
   'sections.sliders.buttons',
-  'sections.sliders.image'
+  'sections.sliders.image',
+  'sections.list1',
+  'sections.list1.image'
 ];

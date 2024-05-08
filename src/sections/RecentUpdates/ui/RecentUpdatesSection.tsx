@@ -1,8 +1,8 @@
 import {Grid} from '@chakra-ui/react';
 import {fetchArticles} from '@/shared/api/getArticles';
 import {Section} from '@/shared/ui';
+import {AboutUsBlock} from './AboutUsBlock/AboutUsBlock';
 import {ActualBlock} from './ActualBlock/ActualBlock';
-import {SomeBlock} from './SomeBlock/SomeBlock';
 
 const urlParamsObject = {
   sort: {createdAt: 'desc'},
@@ -11,6 +11,7 @@ const urlParamsObject = {
 
 type Props = {
   data: {
+    list1?: any[];
     title1?: string;
     title2?: string;
   };
@@ -21,7 +22,7 @@ export const RecentUpdatesSection = async ({data}: Props) => {
   return (
     <Section>
       <Grid templateColumns="70% 30%" gap={4}>
-        <SomeBlock data={articles} />
+        <AboutUsBlock data={data.list1} title={data.title1} />
         <ActualBlock data={articles} title={data.title2} />
       </Grid>
     </Section>

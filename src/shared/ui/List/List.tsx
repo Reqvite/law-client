@@ -9,7 +9,7 @@ type Props<T> = ListProps & {
   isLoading?: boolean;
 } & ({skeleton: ReactElement; skeletonLength: number} | {skeleton?: never; skeletonLength?: never});
 
-export const List = <T extends {id: number}>({
+export const List = <T extends {id: string}>({
   items,
   renderItem,
   row,

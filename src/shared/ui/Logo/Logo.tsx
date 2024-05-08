@@ -5,7 +5,6 @@ import {AppLink} from '../AppLink/AppLink';
 type LogoProps = {
   logoUrl: string | null;
   logoText?: string | null;
-  isFooter?: boolean;
 };
 export const Logo = ({logoUrl, logoText}: LogoProps): ReactElement => {
   return (
