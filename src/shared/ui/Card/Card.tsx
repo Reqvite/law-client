@@ -8,17 +8,9 @@ import {
   Text
 } from '@chakra-ui/react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
-import {ImgDataType} from '@/shared/types/components';
+import {CardPropsType} from '@/shared/types/components';
 
-type variantTypes = 'medium' | 'large';
-
-type AdvantagesCardProps = CardProps & {
-  styleVariant?: variantTypes;
-  image?: {data: ImgDataType};
-  alternativeText?: string;
-  title?: string;
-  description?: string;
-};
+type Props = CardProps & CardPropsType;
 
 export const Card = ({
   maxW = '250px',
@@ -27,7 +19,7 @@ export const Card = ({
   title,
   description,
   ...otherProps
-}: AdvantagesCardProps) => {
+}: Props) => {
   const alt = image?.data?.attributes?.alternativeText || '';
   const imageUrl = getStrapiMedia(image?.data?.attributes?.url || '');
 
@@ -35,7 +27,7 @@ export const Card = ({
     return (
       <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
-          <Image src={imageUrl || ''} alt={alt || ''} borderRadius="lg" />
+          <Image src={imageUrl} alt={alt} borderRadius="lg" />
           <Stack mt="6" spacing="3">
             <Heading size="md">{title}</Heading>
             <Text>{description}</Text>
@@ -49,7 +41,7 @@ export const Card = ({
     return (
       <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
-          <Image src={imageUrl || ''} alt={alt || ''} borderRadius="lg" />
+          <Image src={imageUrl} alt={alt} borderRadius="lg" />
           <Stack mt="6" spacing="3">
             <Heading size="md">{title}</Heading>
             <Text>{description}</Text>
@@ -62,7 +54,7 @@ export const Card = ({
   return (
     <CardChakra maxW={maxW} {...otherProps}>
       <CardBody>
-        <Image src={imageUrl || ''} alt={alt || ''} borderRadius="lg" />
+        <Image src={imageUrl} alt={alt} borderRadius="lg" />
         <Stack mt="6" spacing="3">
           <Heading size="md">{title}</Heading>
           <Text>{description}</Text>

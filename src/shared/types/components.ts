@@ -38,6 +38,17 @@ export interface CheckboxType {
   hrefText: string;
 }
 
+type variantCardTypes = 'medium' | 'large';
+
+export type CardPropsType = {
+  id: string;
+  styleVariant?: variantCardTypes;
+  image?: {data: ImgDataType};
+  title?: string;
+  description?: string;
+  href?: string;
+};
+
 export type ImgDataAttributesType = {
   name: string;
   alternativeText: string | null;

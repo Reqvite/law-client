@@ -6,7 +6,7 @@ type RenderListItemsProps<T> = ListItemProps & {
   renderItem?: any;
 } & ({skeleton: ReactElement; length: number} | {skeleton?: never; length?: never});
 
-export function renderListItem<T extends {id: number}>({
+export function renderListItem<T extends {id: string}>({
   items,
   renderItem: Component,
   length = 5,
