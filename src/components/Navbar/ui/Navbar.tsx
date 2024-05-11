@@ -8,15 +8,16 @@ import {
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
-import {IoCloseCircleOutline} from 'react-icons/io5';
-import type {ButtonLink, NavLink} from '@/shared/types/components';
+import {IoClose} from 'react-icons/io5';
+import {RxHamburgerMenu} from 'react-icons/rx';
+import type {ButtonType, NavLink} from '@/shared/types/components';
 import {AppLink, Logo} from '@/shared/ui';
 import {DesktopNav} from './DesktopNav';
 import {MobileNav} from './MobileNav';
 
 interface Props {
   links: Array<NavLink>;
-  buttons: Array<ButtonLink>;
+  buttons: Array<ButtonType>;
   logoUrl: string | null;
   logoText: string | null;
 }
@@ -55,9 +56,9 @@ export const Navbar = ({links, buttons, logoUrl, logoText}: Props) => {
             onClick={onToggle}
             icon={
               isOpen ? (
-                <IoCloseCircleOutline w={3} h={3} color={'white'} />
+                <IoClose size={20} color={'black'} />
               ) : (
-                <IoCloseCircleOutline w={5} h={5} color={'white'} />
+                <RxHamburgerMenu size={20} color={'black'} />
               )
             }
             variant={'primary'}
@@ -71,15 +72,8 @@ export const Navbar = ({links, buttons, logoUrl, logoText}: Props) => {
           </Flex>
         </Flex>
         <Stack flex={{base: 1, md: 0}} justify={'flex-end'} direction={'row'} spacing={6}>
-          {buttons.map(({href, label, variant, id, isAnchor}) => (
-            <AppLink
-              size="lg"
-              key={id}
-              variant={variant}
-              label={label}
-              isAnchor={isAnchor}
-              href={href || ''}
-            />
+          {buttons.map(({href, label, variant, id}) => (
+            <AppLink size="lg" key={id} variant={variant} label={label} href={href || ''} />
           ))}
         </Stack>
       </Flex>

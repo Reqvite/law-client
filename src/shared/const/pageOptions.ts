@@ -5,7 +5,7 @@ export const urlParamsObject = [
   'sections.image',
   'sections.inputs',
   'sections.checkboxes',
-  'sections.options',
+  'sections.options.options',
   'sections.submitButton',
   'sections.subscribeButton',
   'sections.inputSubscribe',
