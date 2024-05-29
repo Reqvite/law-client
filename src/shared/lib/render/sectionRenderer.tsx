@@ -1,7 +1,9 @@
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
 import {LiteratureSection} from '@/sections/Literature';
+import {News} from '@/sections/News/News';
 import {RecentUpdatesSection} from '@/sections/RecentUpdates';
+
 export function sectionRenderer(section: any, index: number) {
   switch (section.__component) {
     case 'blocks.hero':
@@ -10,6 +12,8 @@ export function sectionRenderer(section: any, index: number) {
       return <RecentUpdatesSection key={index} data={section} />;
     case 'blocks.submit-form':
       return <FormSection key={index} data={section} />;
+    case 'blocks.news':
+      return <News key={index} data={section} />;
     case 'blocks.literature':
       return <LiteratureSection key={index} data={section} />;
     default:
