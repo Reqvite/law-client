@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {CardPropsType} from '@/shared/types/components';
+import {AppLink} from '../AppLink/AppLink';
 
 type Props = CardProps & CardPropsType;
 
@@ -18,13 +19,16 @@ export const Card = ({
   styleVariant,
   title,
   description,
+  href,
   ...otherProps
 }: Props) => {
   const alt = image?.data?.attributes?.alternativeText || '';
   const imageUrl = getStrapiMedia(image?.data?.attributes?.url || '');
 
+  let content;
+
   if (styleVariant === 'medium') {
-    return (
+    content = (
       <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
           <Image src={imageUrl} alt={alt} borderRadius="lg" />
@@ -38,7 +42,7 @@ export const Card = ({
   }
 
   if (styleVariant === 'large') {
-    return (
+    content = (
       <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
           <Image src={imageUrl} alt={alt} borderRadius="lg" />
@@ -51,7 +55,7 @@ export const Card = ({
     );
   }
 
-  return (
+  content = (
     <CardChakra maxW={maxW} {...otherProps}>
       <CardBody>
         <Image src={imageUrl} alt={alt} borderRadius="lg" />
@@ -62,4 +66,6 @@ export const Card = ({
       </CardBody>
     </CardChakra>
   );
+
+  return href ? <AppLink href={href} component={content} /> : content;
 };
