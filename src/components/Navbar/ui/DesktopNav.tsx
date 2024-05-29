@@ -58,7 +58,7 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
                 bg={popoverContentBgColor}
                 p={4}
                 rounded={'xl'}
-                minW={'sm'}
+                minW={'lg'}
               >
                 <Stack>
                   {navItem.children.map((child) => (
@@ -100,7 +100,7 @@ const DesktopSubNav = ({label, href, subLabel, variant}: SubLink) => {
           transition={'all .3s ease'}
           transform={'translateX(-10px)'}
           opacity={0}
-          _groupHover={{opacity: '100%', transform: 'translateX(0)'}}
+          _groupHover={{opacity: '100%', transform: 'translateX(5)'}}
           justify={'flex-end'}
           align={'center'}
           flex={1}

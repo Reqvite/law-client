@@ -27,10 +27,10 @@ export const Card = ({
     return (
       <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
-          <Image src={imageUrl} alt={alt} borderRadius="lg" />
+          {image && <Image src={imageUrl} alt={alt} borderRadius="lg" />}
           <Stack mt="6" spacing="3">
-            <Heading size="md">{title}</Heading>
-            <Text>{description}</Text>
+            {title && <Heading size="md">{title}</Heading>}
+            {description && <Text>{description}</Text>}
           </Stack>
         </CardBody>
       </CardChakra>
@@ -41,10 +41,10 @@ export const Card = ({
     return (
       <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
-          <Image src={imageUrl} alt={alt} borderRadius="lg" />
+          {image && <Image src={imageUrl} alt={alt} borderRadius="lg" />}
           <Stack mt="6" spacing="3">
-            <Heading size="md">{title}</Heading>
-            <Text>{description}</Text>
+            {title && <Heading size="md">{title}</Heading>}
+            {description && <Text>{description}</Text>}
           </Stack>
         </CardBody>
       </CardChakra>
@@ -54,10 +54,10 @@ export const Card = ({
   return (
     <CardChakra maxW={maxW} {...otherProps}>
       <CardBody>
-        <Image src={imageUrl} alt={alt} borderRadius="lg" />
+        {image && <Image src={imageUrl} alt={alt} borderRadius="lg" />}
         <Stack mt="6" spacing="3">
-          <Heading size="md">{title}</Heading>
-          <Text>{description}</Text>
+          {title && <Heading size="md">{title}</Heading>}
+          {description && <Text>{description}</Text>}
         </Stack>
       </CardBody>
     </CardChakra>
