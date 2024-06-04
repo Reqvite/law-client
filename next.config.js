@@ -5,7 +5,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 });
 
 function getFrontUrl(dev) {
-  return dev ? 'http://localhost:3000' : 'http://localhost:3000';
+  return dev ? 'http://localhost:3000' : 'https://law-client-demo.vercel.app';
 }
 
 function getApiUrl(dev) {
