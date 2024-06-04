@@ -10,7 +10,6 @@ type Props = GridItemProps & {
 };
 
 export const AboutUsBlock = ({data, title}: Props): ReactElement => {
-
   return (
     <GridItem>
       <Heading as="h2" mb={2}>

@@ -1,6 +1,5 @@
 import {Box} from '@chakra-ui/react';
-import {PageProps} from '@/shared/types/pageParams';
 
-export default async function Articles({params}: PageProps) {
+export default async function Articles() {
   return <Box>articles</Box>;
 }
