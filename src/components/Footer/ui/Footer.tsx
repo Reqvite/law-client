@@ -36,7 +36,7 @@ export const Footer = ({logoUrl, logoText, footerLinks, legalLinks, lang}: Props
           spacing="8"
         >
           <Box>
-            <Logo logoUrl={logoUrl} logoText={logoText} isFooter />
+            <Logo logoUrl={logoUrl} logoText={logoText} />
           </Box>
           <SimpleGrid columns={{base: 2, md: 4}} gap="8" width={{base: 'full', lg: 'auto'}}>
             {footerLinks?.map((group, idx) => (
