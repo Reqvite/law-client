@@ -9,7 +9,7 @@ function getFrontUrl(dev) {
 }
 
 function getApiUrl(dev) {
-  return dev ? 'http://localhost:1400' : 'http://localhost:1400';
+  return dev ? 'http://localhost:1400' : 'https://strapi-9z7b.onrender.com';
 }
 
 module.exports = withBundleAnalyzer({
