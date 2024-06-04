@@ -8,6 +8,7 @@ type Props = {
     title: string;
     description: string;
     submitButton: ButtonType;
+    options: any;
   };
 };
 
