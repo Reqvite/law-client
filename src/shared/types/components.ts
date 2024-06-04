@@ -47,6 +47,8 @@ export type CardPropsType = {
   title?: string;
   description?: string;
   href?: string;
+  list?: any;
+  loadMoreButton?: any;
 };
 
 export type ImgDataAttributesType = {

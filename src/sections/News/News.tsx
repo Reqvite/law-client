@@ -5,7 +5,7 @@ import {AppLink, List, Section} from '@/shared/ui';
 import {Card} from '@/shared/ui/Card/Card';
 
 type Props = GridItemProps & {
-  data: CardPropsType[];
+  data: CardPropsType;
   title?: string;
 };
 
