@@ -27,7 +27,7 @@ const MobileNavItem = ({label, children, href, variant}: NavLink) => {
   const haveChildren = children.length !== 0;
 
   return (
-    <Stack spacing={4} onClick={haveChildren ? onToggle : null}>
+    <Stack spacing={4} onClick={haveChildren ? onToggle : undefined}>
       <AppLink
         py={2}
         variant={variant}
