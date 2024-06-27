@@ -3,8 +3,8 @@ import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {CardPropsType} from '@/shared/types/components';
 import {AppLink} from '../AppLink/AppLink';
+import {Image} from '../Image';
 import {Tooltip} from '../Tooltip';
-import { Image } from '../Image';
 
 type StyleVariant = 'small' | 'medium' | 'large';
 

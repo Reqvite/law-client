@@ -1,1 +1,2 @@
+npm run lint:ts:fix
 npx lint-staged
