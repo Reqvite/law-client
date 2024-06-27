@@ -1,6 +1,7 @@
 interface ArticleI {
   id: string;
   title: string;
+  previewDescription: string;
   description: string;
   slug: string;
   createdAt: string;

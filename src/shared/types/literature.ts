@@ -11,4 +11,5 @@ export interface LiteratureI {
       };
     };
   };
+  image: any;
 }

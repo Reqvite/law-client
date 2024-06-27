@@ -1,16 +1,10 @@
-import {
-  Card as CardChakra,
-  CardBody,
-  CardProps,
-  Heading,
-  Image,
-  Stack,
-  Text
-} from '@chakra-ui/react';
+import {Card as CardChakra, CardBody, CardProps, Heading, Stack, Text} from '@chakra-ui/react';
+import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {CardPropsType} from '@/shared/types/components';
 import {AppLink} from '../AppLink/AppLink';
 import {Tooltip} from '../Tooltip';
+import { Image } from '../Image';
 
 type StyleVariant = 'small' | 'medium' | 'large';
 
@@ -24,7 +18,7 @@ export const Card = ({
   description,
   href,
   ...otherProps
-}: Props) => {
+}: Props): ReactElement => {
   const alt = image?.data?.attributes?.alternativeText || '';
   const imageUrl = getStrapiMedia(image?.data?.attributes?.url || '');
 
@@ -43,7 +37,7 @@ export const Card = ({
                 {title}
               </Heading>
             )}
-            {description && <Text noOfLines={6}>{description}</Text>}
+            {description && <Text noOfLines={5}>{description}</Text>}
           </Stack>
         </CardBody>
       </CardChakra>
