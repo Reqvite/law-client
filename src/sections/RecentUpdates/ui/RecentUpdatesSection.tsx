@@ -7,7 +7,7 @@ import {ActualBlock} from './ActualBlock/ActualBlock';
 
 const urlParamsObject = {
   sort: {createdAt: 'desc'},
-  pagination: {limit: 5}
+  pagination: {limit: 10}
 };
 
 type Props = {
