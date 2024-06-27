@@ -15,7 +15,7 @@ export const AboutUsBlock = ({data, title}: Props): ReactElement => {
       <Heading as="h2" mb={2}>
         {title}
       </Heading>
-      <List<CardPropsType & CardProps> row renderItem={Card} items={data} />
+      <List<CardPropsType & CardProps> row renderItem={Card} items={data} gap={2} />
     </GridItem>
   );
 };

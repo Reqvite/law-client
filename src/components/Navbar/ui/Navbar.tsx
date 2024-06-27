@@ -34,17 +34,17 @@ export const Navbar = ({links, buttons, logoUrl, logoText}: Props) => {
       as="header"
       css={{backdropFilter: 'blur(4px)'}}
       background={headerBg}
-      position={'fixed'}
-      zIndex={'var(--chakra-zIndices-navbar)'}
+      position="absolute"
+      zIndex="var(--chakra-zIndices-navbar)"
       width="100%"
     >
       <Flex
         color={useColorModeValue('gray.600', 'white')}
-        minH={'60px'}
+        minH="60px"
         py={{base: 2}}
         px={{base: 4}}
         borderColor={useColorModeValue('gray.200', 'gray.900')}
-        align={'center'}
+        align="center"
       >
         <Flex
           align={'center'}
@@ -56,13 +56,13 @@ export const Navbar = ({links, buttons, logoUrl, logoText}: Props) => {
             onClick={onToggle}
             icon={
               isOpen ? (
-                <IoClose size={20} color={'black'} />
+                <IoClose size={20} color="black" />
               ) : (
-                <RxHamburgerMenu size={20} color={'black'} />
+                <RxHamburgerMenu size={20} color="black" />
               )
             }
-            variant={'primary'}
-            aria-label={'Toggle Navigation'}
+            variant="primary"
+            aria-label="Toggle Navigation"
           />
         </Flex>
         <Flex flex={{base: 1}} justify={{base: 'center', md: 'start'}} align={'center'}>
@@ -71,7 +71,7 @@ export const Navbar = ({links, buttons, logoUrl, logoText}: Props) => {
             <DesktopNav links={links} />
           </Flex>
         </Flex>
-        <Stack flex={{base: 1, md: 0}} justify={'flex-end'} direction={'row'} spacing={6}>
+        <Stack flex={{base: 1, md: 0}} justify="flex-end" direction="row" spacing={6}>
           {buttons.map(({href, label, variant, id}) => (
             <AppLink size="lg" key={id} variant={variant} label={label} href={href || ''} />
           ))}

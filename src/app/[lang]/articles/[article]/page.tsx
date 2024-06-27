@@ -1,5 +1,6 @@
-import {Heading, Stack, Text} from '@chakra-ui/react';
+import {Heading, Text} from '@chakra-ui/react';
 import {fetchArticles} from '@/shared/api/getArticles';
+import {Section} from '@/shared/ui';
 
 export default async function ArticleRoute({params}: {params: {article: string}}) {
   const urlParamsObject = {
@@ -12,9 +13,9 @@ export default async function ArticleRoute({params}: {params: {article: string}}
   if (data.length === 0) return <div>Not found</div>;
 
   return (
-    <Stack>
-      <Heading>{data[0]?.title}</Heading>
-      <Text>{data[0]?.description}</Text>
-    </Stack>
+    <Section>
+      <Heading>{data[0].title}</Heading>
+      <Text>{JSON.stringify(data[0]?.description)}</Text>
+    </Section>
   );
 }

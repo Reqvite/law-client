@@ -22,8 +22,8 @@ export const RecentUpdatesSection = async ({data}: Props) => {
   const {data: articles} = await fetchArticles({urlParamsObject});
   return (
     <Section>
-      <Grid templateColumns="70% 30%" gap={4}>
-        <AboutUsBlock data={data.list1 || []} title={data.title1} />
+      <Grid templateColumns={{base: '1fr', md: '75% 25%'}} gap={4}>
+        <AboutUsBlock data={data?.list1 || []} title={data?.title1} />
         <ActualBlock data={articles} title={data.title2} />
       </Grid>
     </Section>

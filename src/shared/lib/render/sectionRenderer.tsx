@@ -12,7 +12,7 @@ export function sectionRenderer(section: any, index: number) {
       return <RecentUpdatesSection key={index} data={section} />;
     case 'blocks.submit-form':
       return <FormSection key={index} data={section} />;
-    case 'blocks.news':
+    case 'blocks.news-and-articles':
       return <News key={index} data={section} />;
     case 'blocks.literature':
       return <LiteratureSection key={index} data={section} />;

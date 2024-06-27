@@ -1,5 +1,6 @@
 'use client';
 import {Box, Center, Flex, Heading, Img, Stack, Text} from '@chakra-ui/react';
+import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {useGetLang} from '@/shared/lib/hooks/useGetLang';
 import {ButtonType} from '@/shared/types/components';
@@ -13,25 +14,24 @@ type Props = {
   benefits?: {id: number; title: string; description: string}[];
 };
 
-export const Hero = ({title, description, buttons, image}: Props) => {
+export const Hero = ({title, description, buttons, image}: Props): ReactElement => {
   const lang = useGetLang();
-
   const imgUrl = getStrapiMedia(image?.data?.attributes?.url);
   const alt = image?.data?.attributes?.alternativeText || 'Hero image';
 
   return (
-    <Box as="section" minH="140px" h={{base: 'auto', md: '100vh'}} position="relative">
-      <Box pt={'32'} position="relative" zIndex={1} h={{base: 'auto', md: '100vh'}}>
+    <Box as="section" minH="140px" h={{base: 'auto', md: '800px'}} position="relative">
+      <Box pt="32" position="relative" zIndex={1} h={{base: 'auto', md: '800px'}}>
         <Flex
-          height={'100%'}
-          flexDirection={'column'}
-          justifyContent={'space-between'}
+          height="100%"
+          flexDirection="column"
+          justifyContent="space-between"
           maxW={{base: 'xl', md: '7xl'}}
           mx="auto"
           px={{base: '6', md: '8'}}
           color="white"
         >
-          <Box ml={'auto'} mr={'auto'} maxW="xl">
+          <Box ml="auto" mr="auto" maxW="xl">
             <Center flexDirection="column" textAlign="center" color="white" h="full">
               <Heading as="h1" size="3xl" fontWeight="extrabold">
                 {title}

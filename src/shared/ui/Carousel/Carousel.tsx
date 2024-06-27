@@ -23,7 +23,17 @@ export const Carousel = <T extends ItemWithId>({
 }: Props<T>) => {
   return (
     <Box position="relative" width="full" overflow="hidden">
-      <Swiper {...otherProps}>
+      <Swiper
+        {...otherProps}
+        style={{
+          //@ts-expect-error swiper ignore
+          '--swiper-pagination-color': 'var(--chakra-colors-accentColor)',
+          '--swiper-pagination-bullet-inactive-color': '#999999',
+          '--swiper-pagination-bullet-inactive-opacity': '1',
+          '--swiper-pagination-bullet-size': '16px',
+          '--swiper-pagination-bullet-horizontal-gap': '6px'
+        }}
+      >
         {items.map((item) => (
           <SwiperSlide key={item.id}>
             <Component {...item} />

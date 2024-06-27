@@ -48,7 +48,8 @@ export const getTheme = (colorMode: string) => {
       }
     },
     shadows: {
-      mainShadow: '0 0 0 3px var(--chakra-colors-accentColorTransparentDarker)'
+      mainShadow: '0 0 0 3px var(--chakra-colors-accentColorTransparentDarker)',
+      cardShadow: ' rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px'
     },
     borders: {
       borderMain: '2px solid var(--chakra-colors-accentColor)'

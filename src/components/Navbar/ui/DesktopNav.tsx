@@ -3,8 +3,6 @@
 import {
   Box,
   Button,
-  Flex,
-  Icon,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -12,14 +10,14 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react';
-import {IoChevronDownCircleOutline} from 'react-icons/io5';
+import {ReactElement} from 'react';
 import type {NavLink, SubLink} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
 type DesktopNavProps = {
   links: NavLink[];
 };
-export const DesktopNav = ({links}: DesktopNavProps) => {
+export const DesktopNav = ({links}: DesktopNavProps): ReactElement => {
   const popoverContentBgColor = useColorModeValue(
     'var(--chakra-colors-mainBgColorLight)',
     'var(--chakra-colors-mainBgColorDark)'
@@ -30,14 +28,14 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
   );
 
   return (
-    <Stack direction={'row'} spacing={4}>
+    <Stack direction="row" spacing={4}>
       {links.map((navItem) => (
         <Box key={navItem.label}>
-          <Popover trigger={'hover'} placement={'bottom-end'}>
+          <Popover trigger="hover" placement="bottom-end">
             <PopoverTrigger>
               <Button
                 as="a"
-                variant={'link'}
+                variant="link"
                 p={2}
                 href={navItem.href ?? '#'}
                 color={linkColor}
@@ -49,9 +47,9 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
                 {navItem.label}
               </Button>
             </PopoverTrigger>
-
             {navItem.children.length !== 0 && (
               <PopoverContent
+                overflow="auto"
                 inset={0}
                 border={0}
                 boxShadow={'xl'}
@@ -59,6 +57,7 @@ export const DesktopNav = ({links}: DesktopNavProps) => {
                 p={4}
                 rounded={'xl'}
                 minW={'lg'}
+                w="100%"
               >
                 <Stack>
                   {navItem.children.map((child) => (
@@ -96,22 +95,6 @@ const DesktopSubNav = ({label, href, subLabel, variant}: SubLink) => {
           </Text>
           <Text fontSize={'sm'}>{subLabel}</Text>
         </Box>
-        <Flex
-          transition={'all .3s ease'}
-          transform={'translateX(-10px)'}
-          opacity={0}
-          _groupHover={{opacity: '100%', transform: 'translateX(5)'}}
-          justify={'flex-end'}
-          align={'center'}
-          flex={1}
-        >
-          <Icon
-            color={'var(--chakra-colors-accentColor)'}
-            w={5}
-            h={5}
-            as={IoChevronDownCircleOutline}
-          />
-        </Flex>
       </Stack>
     </AppLink>
   );
