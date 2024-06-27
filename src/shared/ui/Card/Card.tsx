@@ -37,7 +37,7 @@ export const Card = ({
           {image && (
             <Image src={imageUrl} objectFit="fill" w="100%" h="250px" alt={alt} borderRadius="lg" />
           )}
-          <Stack mt="6" spacing="3" p={2} height={200}>
+          <Stack spacing="3" p={5} height={200}>
             {title && (
               <Heading isTruncated size="md">
                 {title}
@@ -62,7 +62,7 @@ export const Card = ({
     );
   } else {
     content = (
-      <CardChakra p={2} maxW={maxW} {...otherProps} boxShadow="var(--chakra-shadows-cardShadow)">
+      <CardChakra maxW={maxW} {...otherProps} boxShadow="var(--chakra-shadows-cardShadow)">
         <CardBody>
           {image && (
             <Image
