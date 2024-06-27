@@ -1,4 +1,5 @@
-import {Heading, Text} from '@chakra-ui/react';
+import {Heading} from '@chakra-ui/react';
+import {BlocksRenderer} from '@strapi/blocks-react-renderer';
 import {fetchArticles} from '@/shared/api/getArticles';
 import {Section} from '@/shared/ui';
 
@@ -15,7 +16,7 @@ export default async function ArticleRoute({params}: {params: {article: string}}
   return (
     <Section>
       <Heading>{data[0].title}</Heading>
-      <Text>{JSON.stringify(data[0]?.description)}</Text>
+      <BlocksRenderer content={data[0].description} />;
     </Section>
   );
 }
