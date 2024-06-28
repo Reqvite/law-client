@@ -17,7 +17,7 @@ export function sectionRenderer(
     case 'blocks.submit-form':
       return <FormSection key={index} data={section} />;
     case 'blocks.news-and-articles':
-      return <News key={index} data={section} searchParams={searchParams} />;
+      return <News key={index} data={section} searchParams={searchParams!} />;
     case 'blocks.literature':
       return <LiteratureSection key={index} data={section} />;
     default:
