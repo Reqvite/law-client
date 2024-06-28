@@ -4,7 +4,6 @@ import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {CardPropsType} from '@/shared/types/components';
 import {AppLink} from '../AppLink/AppLink';
 import {Image} from '../Image';
-import {Tooltip} from '../Tooltip';
 
 type StyleVariant = 'small' | 'medium' | 'large';
 
@@ -56,7 +55,7 @@ export const Card = ({
     );
   } else {
     content = (
-      <CardChakra maxW={maxW} {...otherProps} boxShadow="var(--chakra-shadows-cardShadow)">
+      <CardChakra maxW={maxW} {...otherProps}>
         <CardBody>
           {image && (
             <Image
@@ -68,11 +67,9 @@ export const Card = ({
               borderRadius="lg"
             />
           )}
-          <Stack mt="6" spacing="3" height={180}>
+          <Stack mt="6" spacing="3">
             {title && <Heading size="md">{title}</Heading>}
-            <Tooltip label={description}>
-              {description && <Text noOfLines={5}>{description}</Text>}
-            </Tooltip>
+            {description && <Text>{description}</Text>}
           </Stack>
         </CardBody>
       </CardChakra>

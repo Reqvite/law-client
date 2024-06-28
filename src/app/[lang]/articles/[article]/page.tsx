@@ -1,7 +1,7 @@
 import {Heading} from '@chakra-ui/react';
-import {BlocksRenderer} from '@strapi/blocks-react-renderer';
 import {fetchArticles} from '@/shared/api/getArticles';
 import {Section} from '@/shared/ui';
+import {ArticleBlockRendered} from '@/shared/ui/BlocksRenderer';
 
 export default async function ArticleRoute({params}: {params: {article: string}}) {
   const urlParamsObject = {
@@ -16,7 +16,7 @@ export default async function ArticleRoute({params}: {params: {article: string}}
   return (
     <Section>
       <Heading>{data[0].title}</Heading>
-      <BlocksRenderer content={data[0].description} />;
+      <ArticleBlockRendered description={data[0].description} />;
     </Section>
   );
 }

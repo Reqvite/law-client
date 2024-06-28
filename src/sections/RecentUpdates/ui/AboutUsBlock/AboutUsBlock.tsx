@@ -15,7 +15,13 @@ export const AboutUsBlock = ({data, title}: Props): ReactElement => {
       <Heading as="h2" mb={2}>
         {title}
       </Heading>
-      <List<CardPropsType & CardProps> row renderItem={Card} items={data} gap={2} />
+      <List<CardPropsType & CardProps>
+        row
+        renderItem={Card}
+        items={data}
+        gap={2}
+        justifyContent={{base: 'center', md: 'normal'}}
+      />
     </GridItem>
   );
 };

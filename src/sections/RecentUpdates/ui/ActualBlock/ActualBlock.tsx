@@ -10,7 +10,7 @@ type Props = GridItemProps & {
 
 export const ActualBlock = ({data, title, ...otherProps}: Props): ReactElement => {
   return (
-    <GridItem {...otherProps}>
+    <GridItem {...otherProps} pr={2}>
       <Heading as="h2" mb={2}>
         {title}
       </Heading>

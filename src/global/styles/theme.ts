@@ -21,6 +21,9 @@ export const getTheme = (colorMode: string) => {
           fontFamily: 'body',
           color: mode('#3D4D54', '#ffffff')(props),
           bg: mode('#ffffff', '#202023')(props)
+        },
+        '.swiper-pagination': {
+          marginBottom: '20px !important'
         }
       })
     },

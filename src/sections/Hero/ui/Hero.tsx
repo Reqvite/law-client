@@ -20,8 +20,8 @@ export const Hero = ({title, description, buttons, image}: Props): ReactElement 
   const alt = image?.data?.attributes?.alternativeText || 'Hero image';
 
   return (
-    <Box as="section" minH="140px" h={{base: 'auto', md: '800px'}} position="relative">
-      <Box pt="32" position="relative" zIndex={1} h={{base: 'auto', md: '800px'}}>
+    <Box as="section" minH="140px" h={{base: 'auto', md: '750px'}} position="relative">
+      <Box pt="32" position="relative" zIndex={1} h={{base: 'auto', md: '750px'}}>
         <Flex
           height="100%"
           flexDirection="column"
