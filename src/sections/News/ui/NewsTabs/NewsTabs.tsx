@@ -36,7 +36,7 @@ export const NewsTabs = ({categories, category}: Props): ReactElement => {
 
   return (
     <AppTabs
-      defaultIndex={index === -1 ? 0 : index}
+      defaultIndex={index === -1 ? 0 : index + 1}
       options={[{value: 'all', label: 'Всі'}, ...options]}
       onChange={onSelect}
     />
