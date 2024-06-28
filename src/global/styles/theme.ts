@@ -126,7 +126,35 @@ export const getTheme = (colorMode: string) => {
           }
         }
       },
-      Checkbox: checkboxTheme
+      Checkbox: checkboxTheme,
+      Tabs: {
+        baseStyle: {
+          tab: {
+            _selected: {
+              color: 'var(--chakra-colors-accentColor)',
+              borderColor: 'var(--chakra-colors-accentColor)'
+            }
+          },
+          tablist: {
+            borderBottom: '2px solid',
+            borderColor: 'var(--chakra-colors-accentColor)',
+            overflowX: 'auto',
+            '::-webkit-scrollbar': {
+              height: '8px'
+            },
+            '::-webkit-scrollbar-thumb': {
+              backgroundColor: 'gray.400',
+              borderRadius: '24px'
+            },
+            '::-webkit-scrollbar-thumb:hover': {
+              backgroundColor: 'gray.500'
+            },
+            '::-webkit-scrollbar-track': {
+              backgroundColor: 'gray.200'
+            }
+          }
+        }
+      }
     }
   });
 };

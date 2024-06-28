@@ -21,7 +21,7 @@ export const AppTabs = <T extends string>({
 
   return (
     <Tabs isFitted onChange={onChangeTab} {...otherProps}>
-      <TabList mb="1em">
+      <TabList mb="1em" overflowY="hidden" overflowX="auto">
         {options?.map((tab) => (
           <Tab key={tab.value} value={tab.value}>
             {tab.label}
