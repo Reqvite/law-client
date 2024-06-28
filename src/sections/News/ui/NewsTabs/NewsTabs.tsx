@@ -19,7 +19,7 @@ export const NewsTabs = ({categories, category}: Props): ReactElement => {
     label: category.attributes.title
   }));
 
-  const onSelect = (value: string | number) => {
+  const onSelect = (value: string | number): void => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
     if (!value) {
       current.delete('news-category');
