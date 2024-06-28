@@ -25,10 +25,10 @@ export const News = async ({data, searchParams}: Props): Promise<ReactElement> =
 
   return (
     <Section>
-      {categories?.data && <NewsTabs categories={categories?.data} category={category} />}
       <Heading as="h2" mb={2}>
         {title}
       </Heading>
+      {categories?.data && <NewsTabs categories={categories?.data} category={category} />}
       <List<CardPropsType & CardProps>
         row
         renderItem={Card}
