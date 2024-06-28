@@ -7,7 +7,7 @@ import {RecentUpdatesSection} from '@/sections/RecentUpdates';
 export function sectionRenderer(
   section: any,
   index: number,
-  searchParams: {[key: string]: string}
+  searchParams?: {[key: string]: string}
 ) {
   switch (section.__component) {
     case 'blocks.hero':
