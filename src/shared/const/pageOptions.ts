@@ -15,5 +15,6 @@ export const urlParamsObject = [
   'sections.list1.image',
   'sections.list.image',
   'sections.button',
-  'sections.list.imgs'
+  'sections.list.imgs',
+  'sections.categories'
 ];

@@ -1,5 +1,5 @@
-import {Box} from '@chakra-ui/react';
+import {Section} from '@/shared/ui';
 
 export default async function Articles() {
-  return <Box>articles</Box>;
+  return <Section>articles</Section>;
 }

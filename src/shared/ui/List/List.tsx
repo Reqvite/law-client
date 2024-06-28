@@ -1,4 +1,4 @@
-import {List as ChakraList, ListProps} from '@chakra-ui/react';
+import {Center, List as ChakraList, ListProps} from '@chakra-ui/react';
 import {FunctionComponent, ReactElement} from 'react';
 import {renderListItem} from './model/renderListItem.service';
 
@@ -18,6 +18,10 @@ export const List = <T extends {id: string}>({
   skeletonLength = 5,
   ...otherProps
 }: Props<T>): ReactElement => {
+  if (!items.length) {
+    return <Center>Not found</Center>;
+  }
+
   return (
     <ChakraList
       display="flex"
