@@ -54,12 +54,12 @@ export const Management = ({
               <Stack spacing="5">
                 <Image
                   src={getStrapiMedia(member?.attributes?.image?.data?.attributes.url)}
-                  alt={member.attributes.fullname}
+                  alt={member?.attributes.fullname}
                   borderRadius="lg"
                 />
                 <Stack spacing="1">
                   <Text fontWeight="bold" fontSize={{base: 'lg', md: 'xl'}}>
-                    {member.attributes.fullname}
+                    {member?.attributes.fullname}
                   </Text>
                   <Text fontSize={{base: 'md', md: 'lg'}}>{member.attributes.role}</Text>
                 </Stack>

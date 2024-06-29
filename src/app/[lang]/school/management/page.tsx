@@ -1,7 +1,7 @@
 import {getPageBySlug} from '@/shared/api/get-page-by-slug';
 import {urlParamsObject} from '@/shared/const/pageOptions';
 import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
-import {PageProps} from '../../../../../.next/types/app/[lang]/layout';
+import {PageProps} from '@/shared/types/pageParams';
 
 export default async function ManagementPage({params, searchParams}: PageProps) {
   const page = await getPageBySlug('Management', params.lang, urlParamsObject);
