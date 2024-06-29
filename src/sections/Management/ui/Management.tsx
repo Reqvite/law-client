@@ -1,6 +1,7 @@
 import {Heading, SimpleGrid, Stack, Text} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
+import {ButtonType} from '@/shared/types/components';
 import {Managemnet} from '@/shared/types/managment';
 import {AppLink, Section} from '@/shared/ui';
 import {Image} from '@/shared/ui/Image';
@@ -9,6 +10,7 @@ type Props = {
   data: {
     title?: string;
     description: string;
+    buttons: ButtonType[];
     management?: {
       data: {
         id: string;
@@ -56,12 +58,10 @@ export const Management = ({
                   borderRadius="lg"
                 />
                 <Stack spacing="1">
-                  <Text fontWeight="medium" fontSize={{base: 'lg', md: 'xl'}}>
+                  <Text fontWeight="bold" fontSize={{base: 'lg', md: 'xl'}}>
                     {member.attributes.fullname}
                   </Text>
-                  <Text color="accent" fontSize={{base: 'md', md: 'lg'}}>
-                    {member.attributes.role}
-                  </Text>
+                  <Text fontSize={{base: 'md', md: 'lg'}}>{member.attributes.role}</Text>
                 </Stack>
               </Stack>
             </Stack>
