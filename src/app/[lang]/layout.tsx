@@ -78,6 +78,7 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
               footerLinks={footer?.links}
               legalLinks={footer.legalLinks}
               socialLinks={footer.socialLinks}
+              {...footer}
             />
           </Flex>
           <Alert />

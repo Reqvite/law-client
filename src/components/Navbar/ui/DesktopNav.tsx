@@ -1,8 +1,8 @@
 'use client';
-
 import {
   Box,
   Button,
+  Icon,
   Popover,
   PopoverContent,
   PopoverTrigger,
@@ -11,6 +11,7 @@ import {
   useColorModeValue
 } from '@chakra-ui/react';
 import {ReactElement} from 'react';
+import {IoIosArrowDown} from 'react-icons/io';
 import type {NavLink, SubLink} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
@@ -43,6 +44,9 @@ export const DesktopNav = ({links}: DesktopNavProps): ReactElement => {
                   textDecoration: 'none',
                   color: 'var(--chakra-colors-accentColor)'
                 }}
+                rightIcon={
+                  (navItem.children.length !== 0 && <Icon as={IoIosArrowDown} />) || undefined
+                }
               >
                 {navItem.label}
               </Button>

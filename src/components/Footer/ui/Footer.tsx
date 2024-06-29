@@ -5,8 +5,10 @@ import {
   ButtonGroup,
   Container,
   Divider,
+  Flex,
   HStack,
   IconButton,
+  Link,
   SimpleGrid,
   Stack,
   Text
@@ -22,8 +24,27 @@ interface Props {
   footerLinks: Array<NavLink>;
   legalLinks: Array<NavLink>;
   socialLinks: Array<NavLink>;
+  email?: string;
+  phone?: string;
+  address?: string;
+  emailTitle?: string;
+  phoneTitle?: string;
+  addressTitle?: string;
 }
-export const Footer = ({logoUrl, logoText, footerLinks, legalLinks, lang}: Props) => {
+export const Footer = ({
+  logoUrl,
+  logoText,
+  footerLinks,
+  legalLinks,
+  lang,
+  email,
+  phone,
+  address,
+  emailTitle,
+  phoneTitle,
+  addressTitle
+}: Props) => {
+  console.log(email);
   return (
     <Box bg="bg.surface">
       <Container as="footer" role="contentinfo" maxW={'8xl'}>
@@ -35,29 +56,42 @@ export const Footer = ({logoUrl, logoText, footerLinks, legalLinks, lang}: Props
           py={{base: '12', md: '16'}}
           spacing="8"
         >
-          <Box>
+          <Box width="100px">
             <Logo logoUrl={logoUrl} logoText={logoText} />
           </Box>
-          <SimpleGrid columns={{base: 2, md: 4}} gap="8" width={{base: 'full', lg: 'auto'}}>
-            {footerLinks?.map((group, idx) => (
-              <Stack key={idx} spacing="4" minW={{lg: '40'}}>
-                <Text fontSize="sm" fontWeight="semibold" color="gray">
-                  {group.label}
-                </Text>
-                <Stack spacing="3" shouldWrapChildren>
-                  {group.children.map((link, idx) => (
-                    <AppLink
-                      key={idx}
-                      variant={link.variant}
-                      label={link.label}
-                      lang={lang}
-                      href={link.href || ''}
-                    />
-                  ))}
+          <Flex justifyContent="space-between" w="full" gap={2}>
+            <Stack spacing="4" minW={{lg: '40'}}>
+              <Text>
+                {addressTitle} {address}
+              </Text>
+              <Text>
+                {emailTitle} <Link href={`mailto:${email}`}>{email}</Link>
+              </Text>
+              <Text>
+                {phoneTitle} <Link href={`tel:${phone}`}>{phone}</Link>
+              </Text>
+            </Stack>
+            <SimpleGrid columns={{base: 2, md: 4}} gap="8" width={{base: 'full', lg: 'auto'}}>
+              {footerLinks?.map((group, idx) => (
+                <Stack key={idx} spacing="4" minW={{lg: '40'}}>
+                  <Text fontSize="sm" fontWeight="semibold" color="gray">
+                    {group.label}
+                  </Text>
+                  <Stack spacing="3" shouldWrapChildren>
+                    {group.children.map((link, idx) => (
+                      <AppLink
+                        key={idx}
+                        variant={link.variant}
+                        label={link.label}
+                        lang={lang}
+                        href={link.href || ''}
+                      />
+                    ))}
+                  </Stack>
                 </Stack>
-              </Stack>
-            ))}
-          </SimpleGrid>
+              ))}
+            </SimpleGrid>
+          </Flex>
         </Stack>
         <Divider />
         <Stack

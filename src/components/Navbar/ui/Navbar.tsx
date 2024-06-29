@@ -8,6 +8,7 @@ import {
   useColorModeValue,
   useDisclosure
 } from '@chakra-ui/react';
+import {ReactElement} from 'react';
 import {IoClose} from 'react-icons/io5';
 import {RxHamburgerMenu} from 'react-icons/rx';
 import type {ButtonType, NavLink} from '@/shared/types/components';
@@ -22,7 +23,7 @@ interface Props {
   logoText: string | null;
 }
 
-export const Navbar = ({links, buttons, logoUrl, logoText}: Props) => {
+export const Navbar = ({links, buttons, logoUrl, logoText}: Props): ReactElement => {
   const {isOpen, onToggle} = useDisclosure();
   const headerBg = useColorModeValue(
     'var(--chakra-colors-secondaryBgColorLightTransparent)',

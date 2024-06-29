@@ -19,7 +19,7 @@ export const List = <T extends {id: string}>({
   ...otherProps
 }: Props<T>): ReactElement => {
   if (!items.length) {
-    return <Center>Not found</Center>;
+    return <Center>Нічого не знайдено</Center>;
   }
 
   return (
