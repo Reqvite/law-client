@@ -1,8 +1,9 @@
-import {Button, Container, Heading, Text, VStack} from '@chakra-ui/react';
+import {Button, Heading, Text, VStack} from '@chakra-ui/react';
+import {Section} from '@/shared/ui';
 
 export default function NotFound() {
   return (
-    <Container as="section" pt={300}>
+    <Section>
       <VStack spacing={5}>
         <Heading as="h2">Error 404</Heading>
         <Heading as="h2">Not Found</Heading>
@@ -11,6 +12,6 @@ export default function NotFound() {
           Return Home
         </Button>
       </VStack>
-    </Container>
+    </Section>
   );
 }
