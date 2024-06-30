@@ -68,8 +68,12 @@ export const Card = ({
             />
           )}
           <Stack mt="6" spacing="3">
-            {title && <Heading size="md">{title}</Heading>}
-            {description && <Text>{description}</Text>}
+            {title && (
+              <Heading textAlign="center" size="md">
+                {title}
+              </Heading>
+            )}
+            {description && <Text textAlign="center">{description}</Text>}
           </Stack>
         </CardBody>
       </CardChakra>

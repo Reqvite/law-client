@@ -13,6 +13,7 @@ import {
   Stack,
   Text
 } from '@chakra-ui/react';
+import {ReactElement} from 'react';
 import {FaGithub, FaLinkedin, FaTwitter} from 'react-icons/fa';
 import {NavLink} from '@/shared/types/components';
 import {AppLink, Logo} from '@/shared/ui';
@@ -43,8 +44,7 @@ export const Footer = ({
   emailTitle,
   phoneTitle,
   addressTitle
-}: Props) => {
-  console.log(email);
+}: Props): ReactElement => {
   return (
     <Box bg="bg.surface">
       <Container as="footer" role="contentinfo" maxW={'8xl'}>

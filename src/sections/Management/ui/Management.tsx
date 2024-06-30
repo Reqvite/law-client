@@ -1,5 +1,6 @@
-import {Heading, SimpleGrid, Stack, Text} from '@chakra-ui/react';
+import {SimpleGrid, Stack, Text} from '@chakra-ui/react';
 import {ReactElement} from 'react';
+import {H1Heading} from '@/sections/Base/H1Heading';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {ButtonType} from '@/shared/types/components';
 import {Managemnet} from '@/shared/types/managment';
@@ -33,9 +34,7 @@ export const Management = ({
           alignItems="center"
         >
           <Stack spacing="3" maxW="3xl">
-            <Heading as="h1" fontSize={{base: 'sm', md: '3xl'}}>
-              {title}
-            </Heading>
+            <H1Heading title={title} />
             <Stack spacing={{base: '4', md: '5'}}>
               <Text fontSize={{base: 'lg', md: 'xl'}} color="fg.muted">
                 {description}

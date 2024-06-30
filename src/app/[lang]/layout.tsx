@@ -11,7 +11,9 @@ import {getGlobal} from '@/shared/api/getGlobal';
 import {DEFAULT_THEME} from '@/shared/const/defaultTheme';
 import {FALLBACK_SEO} from '@/shared/const/fallbackSeo';
 import {PageParams} from '@/shared/types/pageParams';
+import {Section} from '@/shared/ui';
 import {Alert} from '@/shared/ui/Alert/Alert';
+import {NextBreadcrumb} from '@/shared/ui/BreadCrumbs';
 
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
   const meta = await getGlobal(params.lang);
@@ -69,6 +71,9 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
               logoText={navbar?.logo?.label}
             />
             <Box as="main" pt={'var(--chakra-sizes-headerHeight)'}>
+              <Section>
+                <NextBreadcrumb homeElement="Головна" capitalizeLinks />
+              </Section>
               {children}
             </Box>
             <Footer

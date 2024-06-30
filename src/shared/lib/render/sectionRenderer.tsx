@@ -1,3 +1,4 @@
+import {Faculties} from '@/sections/Faculties';
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
 import {LiteratureSection} from '@/sections/Literature';
@@ -23,6 +24,8 @@ export function sectionRenderer(
       return <LiteratureSection key={index} data={section} />;
     case 'blocks.management':
       return <Management key={index} data={section} />;
+    case 'blocks.faculties':
+      return <Faculties key={index} {...section} />;
     default:
       return null;
   }
