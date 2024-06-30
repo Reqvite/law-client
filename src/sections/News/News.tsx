@@ -10,7 +10,7 @@ import {mappedList} from './lib/mappedList';
 import {NewsTabs} from './ui/NewsTabs/NewsTabs';
 
 type Props = GridItemProps & {
-  data: {title: string; list: CardPropsType[]; button: ButtonType; categories: {data: CategoryI[]}};
+  data: {title: string; list: CardPropsType[]; button: ButtonType; categories: CategoryI[]};
   title?: string;
   searchParams: {[key: string]: string};
 };
@@ -28,7 +28,7 @@ export const News = async ({data, searchParams}: Props): Promise<ReactElement> =
       <Heading as="h2" mb={2}>
         {title}
       </Heading>
-      {categories?.data && <NewsTabs categories={categories?.data} category={category} />}
+      {categories && <NewsTabs categories={categories} category={category} />}
       <List<CardPropsType & CardProps>
         row
         renderItem={Card}

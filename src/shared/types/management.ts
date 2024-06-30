@@ -1,13 +1,10 @@
 import {ImgDataAttributesType} from './components';
 
-export interface Managemnet {
+export interface ManagementI {
+  id: string;
   fullname: string;
   role: string;
   email: string;
   phone: string;
-  image: {
-    data: {
-      attributes: ImgDataAttributesType;
-    };
-  };
+  image: ImgDataAttributesType;
 }

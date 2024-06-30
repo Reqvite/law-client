@@ -1,29 +1,20 @@
-import {SimpleGrid, Stack, Text} from '@chakra-ui/react';
+import {Stack, Text} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {H1Heading} from '@/sections/Base/H1Heading';
-import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {ButtonType} from '@/shared/types/components';
-import {Managemnet} from '@/shared/types/managment';
+import {ManagementI} from '@/shared/types/management';
 import {AppLink, Section} from '@/shared/ui';
-import {Image} from '@/shared/ui/Image';
+import {AppGrid} from '@/shared/ui/AppGrid';
+import {ManagementCard} from './ManagementCard/ManagementCard';
 
 type Props = {
-  data: {
-    title?: string;
-    description: string;
-    buttons: ButtonType[];
-    management?: {
-      data: {
-        id: string;
-        attributes: Managemnet;
-      }[];
-    };
-  };
+  title?: string;
+  description: string;
+  buttons: ButtonType[];
+  management?: ManagementI[];
 };
 
-export const Management = ({
-  data: {title, description, management, buttons}
-}: Props): ReactElement => {
+export const Management = ({title, description, management, buttons}: Props): ReactElement => {
   return (
     <Section>
       <Stack spacing={{base: '12', md: '16'}}>
@@ -47,25 +38,13 @@ export const Management = ({
             ))}
           </Stack>
         </Stack>
-        <SimpleGrid columns={{base: 1, md: 2, lg: 3}} columnGap="8" rowGap={{base: '10', lg: '16'}}>
-          {management?.data?.map((member) => (
-            <Stack key={member.id} spacing="4">
-              <Stack spacing="5">
-                <Image
-                  src={getStrapiMedia(member?.attributes?.image?.data?.attributes.url)}
-                  alt={member?.attributes.fullname}
-                  borderRadius="lg"
-                />
-                <Stack spacing="1">
-                  <Text fontWeight="bold" fontSize={{base: 'lg', md: 'xl'}}>
-                    {member?.attributes.fullname}
-                  </Text>
-                  <Text fontSize={{base: 'md', md: 'lg'}}>{member.attributes.role}</Text>
-                </Stack>
-              </Stack>
-            </Stack>
-          ))}
-        </SimpleGrid>
+        <AppGrid<ManagementI>
+          items={management || []}
+          renderItem={ManagementCard}
+          columns={{base: 1, md: 3, lg: 4}}
+          columnGap="8"
+          rowGap={{base: '10', lg: '16'}}
+        />
       </Stack>
     </Section>
   );

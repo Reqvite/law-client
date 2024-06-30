@@ -23,7 +23,7 @@ export function sectionRenderer(
     case 'blocks.literature':
       return <LiteratureSection key={index} data={section} />;
     case 'blocks.management':
-      return <Management key={index} data={section} />;
+      return <Management key={index} {...section} />;
     case 'blocks.faculties':
       return <Faculties key={index} {...section} />;
     default:

@@ -1,22 +1,33 @@
 'use client';
 
+import {Stack, Text} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {H1Heading} from '@/sections/Base/H1Heading';
 import {Faculty} from '@/shared/types/faculty';
-import {List, Section} from '@/shared/ui';
+import {Section} from '@/shared/ui';
+import {AppGrid} from '@/shared/ui/AppGrid';
 import {FacultyCard} from './FacultyCard/FacultyCard';
 
-export type FacultyWithId = Faculty & {id: string};
 type Props = {
   title: string;
-  list: {data: FacultyWithId[]};
+  list: Faculty[];
+  description: string;
 };
 
-export const Faculties = ({title, list}: Props): ReactElement => {
+export const Faculties = ({title, description, list}: Props): ReactElement => {
   return (
     <Section>
-      <H1Heading title={title} />
-      <List<FacultyWithId> items={list?.data || []} renderItem={FacultyCard} gap={2} row />
+      <Stack spacing={{base: '12', md: '16'}}>
+        <Stack spacing="3" maxW="3xl">
+          <H1Heading title={title} />
+          <Stack spacing={{base: '4', md: '5'}}>
+            <Text fontSize={{base: 'lg', md: 'xl'}} color="fg.muted">
+              {description}
+            </Text>
+          </Stack>
+        </Stack>
+        <AppGrid<Faculty> items={list || []} renderItem={FacultyCard} gap={3} columns={{base: 1}} />
+      </Stack>
     </Section>
   );
 };

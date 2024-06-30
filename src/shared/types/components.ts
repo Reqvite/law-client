@@ -43,7 +43,7 @@ type variantCardTypes = 'medium' | 'large';
 export type CardPropsType = {
   id: string;
   styleVariant?: variantCardTypes;
-  image?: {data: ImgDataType};
+  image?: ImgDataAttributesType;
   title?: string;
   description?: string;
   href?: string;

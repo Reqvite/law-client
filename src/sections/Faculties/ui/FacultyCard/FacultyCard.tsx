@@ -1,21 +1,15 @@
 import {Box, Heading, Text, useColorModeValue} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
+import {Faculty} from '@/shared/types/faculty';
 import {Image} from '@/shared/ui/Image';
-import {FacultyWithId} from '../Faculties';
 
-type Props = {
-  attributes: FacultyWithId;
-};
+type Props = Faculty;
 
-export const FacultyCard = ({attributes}: Props): ReactElement => {
-  const {title1, title2, previewDescription, image} = attributes;
-  const imageUrl = getStrapiMedia(image?.data?.attributes?.url);
+export const FacultyCard = ({title1, previewDescription, image}: Props): ReactElement => {
+  const imageUrl = getStrapiMedia(image?.url);
   return (
     <Box>
-      <Heading as="h2" fontSize={{base: 'sm', md: '2xl'}}>
-        {title1}
-      </Heading>
       <Box
         marginTop={{base: '1', sm: '5'}}
         display="flex"
@@ -23,12 +17,7 @@ export const FacultyCard = ({attributes}: Props): ReactElement => {
         justifyContent="space-between"
       >
         <Box display="flex" flex="1" marginRight="3" position="relative" alignItems="center">
-          <Box
-            width={{base: '100%', sm: '85%'}}
-            zIndex="2"
-            marginLeft={{base: '0', sm: '5%'}}
-            marginTop="5%"
-          >
+          <Box width={{base: '100%', sm: '85%'}} zIndex="2" marginLeft={{base: '0', sm: '5%'}}>
             <Box textDecoration="none" _hover={{textDecoration: 'none'}}>
               <Image w="full" borderRadius="lg" src={imageUrl} alt={title1} objectFit="fill" />
             </Box>
@@ -52,8 +41,8 @@ export const FacultyCard = ({attributes}: Props): ReactElement => {
           justifyContent="center"
           marginTop={{base: '3', sm: '0'}}
         >
-          <Heading as="h3" fontSize={{base: 'sm', md: 'xl'}}>
-            {title2}
+          <Heading as="h2" fontSize={{base: 'sm', md: '2xl'}}>
+            {title1}
           </Heading>
           <Text as="p" marginTop="2" fontSize="lg">
             {previewDescription}

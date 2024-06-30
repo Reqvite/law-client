@@ -4,11 +4,11 @@ import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {splitSentence} from '@/shared/lib/helpers/splitSentence';
 import {useGetLang} from '@/shared/lib/hooks/useGetLang';
-import {ButtonType} from '@/shared/types/components';
+import {ButtonType, ImgDataAttributesType} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
 type Props = {
-  image: any;
+  image: ImgDataAttributesType;
   buttons: ButtonType[];
   description: string | null;
   title: string | null;
@@ -17,8 +17,8 @@ type Props = {
 
 export const Hero = ({title, description, buttons, image}: Props): ReactElement => {
   const lang = useGetLang();
-  const imgUrl = getStrapiMedia(image?.data?.attributes?.url);
-  const alt = image?.data?.attributes?.alternativeText || 'Hero image';
+  const imgUrl = getStrapiMedia(image?.url);
+  const alt = image?.alternativeText || 'Hero image';
   const titles = splitSentence(title || '');
 
   return (

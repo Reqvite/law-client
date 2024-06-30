@@ -10,13 +10,13 @@ type Props = {
 };
 
 export const NewsTabs = ({categories, category}: Props): ReactElement => {
-  const index = categories.findIndex((el) => el.attributes.slug === category);
+  const index = categories.findIndex((el) => el.slug === category);
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const options = categories.map((category) => ({
-    value: category.attributes.slug,
-    label: category.attributes.title
+    value: category.slug,
+    label: category.title
   }));
 
   const onSelect = (value: string | number): void => {

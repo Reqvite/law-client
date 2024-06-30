@@ -18,8 +18,8 @@ export const Card = ({
   href,
   ...otherProps
 }: Props): ReactElement => {
-  const alt = image?.data?.attributes?.alternativeText || '';
-  const imageUrl = getStrapiMedia(image?.data?.attributes?.url || '');
+  const alt = image?.alternativeText || '';
+  const imageUrl = getStrapiMedia(image?.url || '');
 
   let content;
 

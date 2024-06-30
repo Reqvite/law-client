@@ -18,9 +18,9 @@ import {NextBreadcrumb} from '@/shared/ui/BreadCrumbs';
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
   const meta = await getGlobal(params.lang);
   if (!meta.data) return FALLBACK_SEO;
-  const {seo, favicon} = meta.data.attributes;
-  const {url} = favicon.data.attributes;
-  const {url: openGraphUrl} = seo.metaImage.data.attributes;
+  const {seo, favicon} = meta.data;
+  const {url} = favicon;
+  const {url: openGraphUrl} = seo.metaImage;
 
   return {
     metadataBase: new URL(__FRONT_URL__),
@@ -50,10 +50,10 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
   const cookieStore = cookies();
   const uiColorMode =
     (cookieStore.get('chakra-ui-color-mode')?.value as 'light' | 'dark') || DEFAULT_THEME;
-  const {navbar, footer} = global.data.attributes;
+  const {navbar, footer} = global.data;
   if (!navbar || !footer) return redirect('/');
-  const navbarLogoUrl = getStrapiMedia(navbar.logo?.img.data.attributes.url);
-  const footerLogoUrl = getStrapiMedia(footer.logo?.img.data.attributes.url);
+  const navbarLogoUrl = getStrapiMedia(navbar.logo?.img.url);
+  const footerLogoUrl = getStrapiMedia(footer.logo?.img.url);
 
   return (
     <html
