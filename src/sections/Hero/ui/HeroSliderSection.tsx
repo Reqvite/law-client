@@ -2,21 +2,12 @@
 import {ReactElement} from 'react';
 import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {SwiperProps} from 'swiper/react';
-import {ButtonType, ImgDataType} from '@/shared/types/components';
 import {Carousel} from '@/shared/ui';
-import {Hero} from './Hero';
-
-type SliderType = {
-  id: number;
-  title: string;
-  description: string;
-  buttons: ButtonType[];
-  image: ImgDataType[];
-};
+import {Hero, HeroProps} from './Hero';
 
 type Props = {
   data: {
-    sliders: SliderType[];
+    sliders: HeroProps[];
   };
 };
 
@@ -37,7 +28,7 @@ const getCarouselConfig = (): SwiperProps => {
 
 export const HeroSliderSection = ({data}: Props): ReactElement => {
   return (
-    <Carousel<SliderType>
+    <Carousel<HeroProps>
       {...getCarouselConfig()}
       items={data?.sliders || []}
       modules={[Navigation, Pagination, Autoplay]}

@@ -7,15 +7,15 @@ import {useGetLang} from '@/shared/lib/hooks/useGetLang';
 import {ButtonType, ImgDataAttributesType} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
-type Props = {
-  image: ImgDataAttributesType;
+export type HeroProps = {
+  id: number;
+  title: string;
+  description: string;
   buttons: ButtonType[];
-  description: string | null;
-  title: string | null;
-  benefits?: {id: number; title: string; description: string}[];
+  image: ImgDataAttributesType;
 };
 
-export const Hero = ({title, description, buttons, image}: Props): ReactElement => {
+export const Hero = ({title, description, buttons, image}: HeroProps): ReactElement => {
   const lang = useGetLang();
   const imgUrl = getStrapiMedia(image?.url);
   const alt = image?.alternativeText || 'Hero image';
@@ -43,7 +43,7 @@ export const Hero = ({title, description, buttons, image}: Props): ReactElement 
                 {description}
               </Text>
               <Stack direction={{base: 'column', md: 'row'}} mt="10" spacing="4">
-                {buttons.map(({href, label, variant, id}) => (
+                {buttons.map(({href, label, variant, id}: ButtonType) => (
                   <AppLink
                     size="lg"
                     key={id}
