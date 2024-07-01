@@ -28,6 +28,7 @@ export const getProps = <T extends FieldValues>({
 }) => {
   const variant = option.variant;
   let baseProps: BasePropsI<T> = {
+    control,
     required: option.isRequired,
     type: option.type,
     label: option.name,

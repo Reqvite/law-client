@@ -12,7 +12,7 @@ export const useSubmitForm = (
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<undefined | string>(undefined);
 
-  const submitForm = async (values: any, route: string) => {
+  const submitForm = async (values: any, route: string): any => {
     setIsLoading(true);
     setError(undefined);
     try {
