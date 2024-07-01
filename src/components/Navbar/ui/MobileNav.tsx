@@ -10,7 +10,7 @@ type MobileNavProps = {
 };
 export const MobileNav = ({links}: MobileNavProps) => {
   const headerBg = useColorModeValue(
-    'var(--chakra-colors-secondaryBgColorLightTransparent)',
+    'var(--chakra-colors-mainBgColorLight)',
     'var(--chakra-colors-secondaryBgColorDarkTransparent)'
   );
   return (
@@ -34,7 +34,8 @@ const MobileNavItem = ({label, children, href, variant}: NavLink) => {
         href={href || '#'}
         justifyContent="space-between"
         alignItems="center"
-        display={'flex'}
+        display="flex"
+        color={'var(--chakra-colors-mainColorLight)'}
       >
         <Text fontWeight={600}>{label}</Text>
         {haveChildren && (
@@ -52,13 +53,19 @@ const MobileNavItem = ({label, children, href, variant}: NavLink) => {
           mt={2}
           pl={4}
           borderLeft={1}
-          borderStyle={'solid'}
+          borderStyle="solid"
           borderColor={useColorModeValue('gray.200', 'gray.700')}
-          align={'start'}
+          align="start"
         >
           {haveChildren &&
             children.map((child) => (
-              <AppLink variant={variant} key={child.label} py={2} href={child.href}>
+              <AppLink
+                color={'var(--chakra-colors-mainColorLight)'}
+                variant={variant}
+                key={child.label}
+                py={2}
+                href={child.href}
+              >
                 {child.label}
               </AppLink>
             ))}

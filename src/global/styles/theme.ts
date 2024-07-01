@@ -30,7 +30,8 @@ export const getTheme = (colorMode: string) => {
     colors: {
       mainBgColorLight: '#ffffff',
       secondaryBgColorLight: '#f5f5f5',
-      secondaryBgColorLightTransparent: '#f5f5f560',
+      secondaryBgColorLightTransparent: '#f5f5f510',
+      secondaryBgColorLightLessTransparent: '#f5f5f599',
       mainBgColorDark: '#202023',
       secondaryBgColorDark: '#282828',
       secondaryBgColorDarkTransparent: '#28282860',

@@ -11,7 +11,6 @@ import {getGlobal} from '@/shared/api/getGlobal';
 import {DEFAULT_THEME} from '@/shared/const/defaultTheme';
 import {FALLBACK_SEO} from '@/shared/const/fallbackSeo';
 import {PageParams} from '@/shared/types/pageParams';
-import {Section} from '@/shared/ui';
 import {Alert} from '@/shared/ui/Alert/Alert';
 import {NextBreadcrumb} from '@/shared/ui/BreadCrumbs';
 
@@ -70,11 +69,11 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
               logoUrl={navbarLogoUrl}
               logoText={navbar?.logo?.label}
             />
-            <Box as="main" pt="var(--chakra-sizes-headerHeight)">
-              <Section>
+            <Box as="main">
+              <>
                 <NextBreadcrumb homeElement="Головна" capitalizeLinks />
-              </Section>
-              {children}
+                {children}
+              </>
             </Box>
             <Footer
               lang={params.lang}
