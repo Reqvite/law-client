@@ -43,6 +43,7 @@ export const Form = <T extends FieldValues>({
     const formData = getValues();
     const transformedData = transformData ? transformData(formData) : formData;
     onSubmit(transformedData!);
+    reset();
   });
 
   const handleCancel = () => {

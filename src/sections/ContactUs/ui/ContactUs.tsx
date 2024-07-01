@@ -18,7 +18,7 @@ export const ContactUs = ({submitButton, title, options, mapAddress}: Props): Re
     <Section>
       <Heading as="h2">{title}</Heading>
       <CreateForm
-        route="contact-us-submifssions"
+        route="contact-us-submissions"
         options={options}
         submitButton={submitButton}
         component={<MapFrame address={mapAddress} />}
