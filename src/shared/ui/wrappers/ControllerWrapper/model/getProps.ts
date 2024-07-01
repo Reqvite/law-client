@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+import {InputProps} from '@chakra-ui/react';
 import {ElementType} from 'react';
 import {Control, FieldValues} from 'react-hook-form';
 import {FormOption, FormVariantsEnum} from '@/shared/types/form';
@@ -15,6 +16,7 @@ interface BasePropsI<T extends FieldValues> {
   control?: Control<T>;
   styleVariant?: string;
   iconComponent?: ElementType;
+  inputType: InputProps['type'];
 }
 
 export const getProps = <T extends FieldValues>({
@@ -31,7 +33,8 @@ export const getProps = <T extends FieldValues>({
     label: option.name,
     placeholder: option.name,
     max: option.max,
-    min: option.min
+    min: option.min,
+    inputType: option.inputType
   };
 
   if (variant === FormVariantsEnum.Select) {

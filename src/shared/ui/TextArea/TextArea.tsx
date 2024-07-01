@@ -1,31 +1,26 @@
-'use client';
 import {
   Box,
   FormControl,
   FormErrorMessage,
   FormHelperText,
   FormLabel,
-  Input as ChakraInput,
-  InputGroup,
-  InputLeftElement,
-  InputProps as ChakraInputProps
+  Textarea as ChakraTextarea,
+  TextareaProps as ChakraTextareaProps
 } from '@chakra-ui/react';
 import debounce from 'lodash.debounce';
-import {ChangeEvent, forwardRef, ReactNode} from 'react';
+import {ChangeEvent, forwardRef} from 'react';
 
-type InputProps = ChakraInputProps & {
+type TextareaProps = ChakraTextareaProps & {
   label?: string;
   helperText?: string;
   error?: string;
   isRequired?: boolean;
-  leftIcon?: ReactNode;
   readOnly?: boolean;
   debounceTime?: number;
   withError?: boolean;
-  inputType?: InputProps['type'];
 };
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
   (
     {
       label,
@@ -34,16 +29,14 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       error,
       isRequired = false,
       withError = true,
-      leftIcon,
       debounceTime,
       onChange,
-      inputType,
       ...otherProps
     },
     ref
   ) => {
     const onChangeValue = debounceTime
-      ? debounce((event: ChangeEvent<HTMLInputElement>): void => {
+      ? debounce((event: ChangeEvent<HTMLTextAreaElement>): void => {
           if (onChange) {
             onChange(event);
           }
@@ -62,17 +55,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             )}
           </FormLabel>
         )}
-        <InputGroup>
-          {leftIcon && <InputLeftElement pointerEvents="none" children={leftIcon} />}
-          <ChakraInput
-            readOnly={readOnly}
-            autoComplete="off"
-            onChange={onChangeValue}
-            {...otherProps}
-            type={inputType || 'text'}
-            ref={ref}
-          />
-        </InputGroup>
+        <ChakraTextarea
+          readOnly={readOnly}
+          autoComplete="off"
+          onChange={onChangeValue}
+          {...otherProps}
+          ref={ref}
+        />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {withError && (
           <Box height="5px" marginTop={2}>

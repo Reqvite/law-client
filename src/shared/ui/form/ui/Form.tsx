@@ -1,5 +1,5 @@
 'use client';
-import {Box, Button, Stack} from '@chakra-ui/react';
+import {Box, BoxProps, Button, Stack} from '@chakra-ui/react';
 import {ElementType, ReactElement} from 'react';
 import {DefaultValues, FieldValues, Resolver, useForm} from 'react-hook-form';
 import {ButtonType} from '@/shared/types/components';
@@ -7,7 +7,7 @@ import {FormOption, FormVariantsEnum} from '../../../types/form';
 import {renderFormBlock} from '../model/renderFormBlock.service';
 import {FormHeader} from './FormHeader';
 
-type Props<T> = {
+type Props<T> = BoxProps & {
   heading?: string;
   options: FormOption<FormVariantsEnum>[];
   formValidationSchema?: Resolver<any>;
@@ -31,7 +31,8 @@ export const Form = <T extends FieldValues>({
   isLoading,
   onCancel,
   ButtonComponent,
-  submitButton
+  submitButton,
+  ...otherProps
 }: Props<T>): ReactElement => {
   const {handleSubmit, reset, control, getValues} = useForm<T>({
     resolver: formValidationSchema,
@@ -52,12 +53,12 @@ export const Form = <T extends FieldValues>({
   };
 
   return (
-    <Box>
+    <Box {...otherProps}>
       {heading && <FormHeader heading={heading} />}
       <Box as="form" onSubmit={handleFormSubmit}>
         <Stack gap={3}>
           {options.map((option) => renderFormBlock<T>({option, control}))}
-          <Stack direction="row" spacing={2}>
+          <Stack direction="row" spacing={2} justify="flex-end">
             {ButtonComponent ? (
               <ButtonComponent type="submit" isLoading={isLoading} />
             ) : (

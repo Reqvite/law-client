@@ -28,5 +28,5 @@ export default async function ManagementPage({params, searchParams}: PageProps) 
   const sections = contentSections.map((section: any, index: number) =>
     sectionRenderer(section, index, searchParams)
   );
-  return sections;
+  return <>{sections}</>;
 }

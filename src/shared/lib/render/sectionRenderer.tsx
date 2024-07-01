@@ -1,3 +1,4 @@
+import {ContactUs} from '@/sections/ContactUs';
 import {Faculties} from '@/sections/Faculties';
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
@@ -18,6 +19,8 @@ export function sectionRenderer(
       return <RecentUpdatesSection key={index} data={section} />;
     case 'blocks.submit-form':
       return <FormSection key={index} data={section} />;
+    case 'blocks.contact-us':
+      return <ContactUs key={index} {...section} />;
     case 'blocks.news-and-articles':
       return <News key={index} data={section} searchParams={searchParams!} />;
     case 'blocks.literature':

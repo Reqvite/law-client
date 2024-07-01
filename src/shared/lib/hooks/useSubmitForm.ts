@@ -1,11 +1,17 @@
 import {useState} from 'react';
 import {toast} from 'react-toastify';
 import {getStrapiURL} from '@/shared/api/api-helpers';
+interface UseSubmitFormProps {
+  message: string;
+}
 
-export const useSubmitForm = () => {
+export const useSubmitForm = (
+  {message}: UseSubmitFormProps = {message: 'Ми отримали ваш запит.'}
+) => {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
-  const [isLoading, setIsLoading] = useState(false);
-  const [error, setError] = useState(undefined);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<undefined | string>(undefined);
+
   const submitForm = async (values: any, route: string) => {
     setIsLoading(true);
     setError(undefined);
@@ -23,11 +29,12 @@ export const useSubmitForm = () => {
         throw new Error(data.error.message);
       }
       setIsLoading(false);
-      toast.success(data.data.attributes.message);
+      toast.success(message);
       return data;
     } catch (e: any) {
       setError(e.message);
       setIsLoading(false);
+      toast.error(e.message);
     }
   };
   return {error, isLoading, submitForm};
