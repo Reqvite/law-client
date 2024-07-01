@@ -28,5 +28,6 @@ export default async function Faculties({params, searchParams}: PageProps) {
   const sections = contentSections.map((section: any, index: number) =>
     sectionRenderer(section, index, searchParams)
   );
+
   return <>{sections}</>;
 }
