@@ -8,7 +8,7 @@ import {ButtonType, ImgDataAttributesType} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
 export type HeroProps = {
-  id: number;
+  id: string;
   title: string;
   description: string;
   buttons: ButtonType[];

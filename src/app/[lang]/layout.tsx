@@ -63,14 +63,14 @@ export default async function RootLayout({children, params}: RootLayoutProps) {
     >
       <body>
         <AppProviders cookies={uiColorMode}>
-          <Flex flexDirection={'column'} justifyContent={'space-between'} h={'100vh'}>
+          <Flex flexDirection="column" justifyContent="space-between" h="100vh">
             <Navbar
               links={navbar?.links}
               buttons={navbar?.buttons}
               logoUrl={navbarLogoUrl}
               logoText={navbar?.logo?.label}
             />
-            <Box as="main" pt={'var(--chakra-sizes-headerHeight)'}>
+            <Box as="main" pt="var(--chakra-sizes-headerHeight)">
               <Section>
                 <NextBreadcrumb homeElement="Головна" capitalizeLinks />
               </Section>

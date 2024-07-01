@@ -11,7 +11,7 @@ export default async function ArticleRoute({params}: {params: {article: string}}
   };
   const {data} = await fetchArticles({urlParamsObject});
 
-  if (data.length === 0) return <div>Not found</div>;
+  if (data.length === 0) return <Section>Not found</Section>;
 
   return (
     <Section>

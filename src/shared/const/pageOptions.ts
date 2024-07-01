@@ -1,5 +1,6 @@
 export const urlParamsObject = [
   'sections',
+  'seo',
   'sections.benefits',
   'sections.buttons',
   'sections.image',
@@ -13,9 +14,9 @@ export const urlParamsObject = [
   'sections.sliders.buttons',
   'sections.sliders.image',
   'sections.list1.image',
-  'sections.management.image',
   'sections.list.image',
+  'sections.list.management.image',
+  'sections.management.image',
   'sections.button',
-  'sections.list.imgs',
   'sections.categories'
 ];

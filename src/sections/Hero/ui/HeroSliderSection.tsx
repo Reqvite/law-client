@@ -2,7 +2,7 @@
 import {ReactElement} from 'react';
 import {Autoplay, Navigation, Pagination} from 'swiper/modules';
 import {SwiperProps} from 'swiper/react';
-import {Carousel} from '@/shared/ui';
+import Carousel from '@/shared/ui/Carousel/Carousel';
 import {Hero, HeroProps} from './Hero';
 
 type Props = {
