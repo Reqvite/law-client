@@ -4,6 +4,7 @@ import {urlParamsObject} from '@/shared/const/pageOptions';
 import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
 import {PageProps} from '@/shared/types/pageParams';
 
+//@ts-expect-error ///
 export default async function Layout({params, children}: PageProps) {
   const page = await getPageBySlug('Articles', params.lang, urlParamsObject);
   if (page?.data?.length === 0) return null;
