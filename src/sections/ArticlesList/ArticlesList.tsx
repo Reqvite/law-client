@@ -47,9 +47,7 @@ export const ArticlesList = async ({
 
   return (
     <Section>
-      {title && (
-        <TitleWithDescription title={title} description={description} stackProps={{w: '90%'}} />
-      )}
+      {title && <TitleWithDescription title={title} description={description} />}
       {categories && (
         <ArticlesListTabs
           withPagination={withPagination}

@@ -1,4 +1,5 @@
-import {usePathname, useRouter, useSearchParams} from 'next/navigation';
+import {usePathname, useSearchParams} from 'next/navigation';
+import {useRouter} from 'next-nprogress-bar';
 import {useMemo, useState} from 'react';
 
 interface UsePaginationOptions {

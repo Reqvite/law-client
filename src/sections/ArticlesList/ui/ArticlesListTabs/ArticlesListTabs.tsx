@@ -1,5 +1,6 @@
 'use client';
-import {usePathname, useRouter, useSearchParams} from 'next/navigation';
+import {usePathname, useSearchParams} from 'next/navigation';
+import {useRouter} from 'next-nprogress-bar';
 import {ReactElement} from 'react';
 import {Routes} from '@/shared/const/routes';
 import {Text} from '@/shared/const/text';

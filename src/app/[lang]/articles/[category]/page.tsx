@@ -1,3 +1,4 @@
+import {VisuallyHidden} from '@chakra-ui/react';
 import {getPageBySlug} from '@/shared/api/get-page-by-slug';
 import {urlParamsObject} from '@/shared/const/pageOptions';
 import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
@@ -16,5 +17,10 @@ export default async function CategoryRoute({
     sectionRenderer(section, index, searchParams, params)
   );
 
-  return sections;
+  return (
+    <>
+      <VisuallyHidden as="h1">{page?.data[0].h1}</VisuallyHidden>
+      {sections}
+    </>
+  );
 }
