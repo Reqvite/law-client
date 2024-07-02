@@ -1,7 +1,6 @@
 'use client';
 
 import {Box, Center, Flex, Heading, Img, Stack, Text} from '@chakra-ui/react';
-import {motion} from 'framer-motion';
 import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {useGetLang} from '@/shared/lib/hooks/useGetLang';
@@ -15,8 +14,6 @@ export type HeroProps = {
   buttons: ButtonType[];
   image: ImgDataAttributesType;
 };
-
-const MotionBox = motion(Box);
 
 export const Hero = ({title, description, buttons, image}: HeroProps): ReactElement => {
   const lang = useGetLang();
@@ -59,35 +56,18 @@ export const Hero = ({title, description, buttons, image}: HeroProps): ReactElem
           </Box>
         </Flex>
       </Box>
-      <MotionBox
-        id="image-wrapper"
-        position="absolute"
-        insetX="0"
-        insetY="0"
-        w="full"
-        h="full"
-        align="center"
-      >
-        <MotionBox
-          w="full"
-          h="full"
-          initial={{scale: 1.05, opacity: 1}}
-          animate={{scale: 1, opacity: 1}}
-          transition={{
-            duration: 5
-          }}
-        >
+      <Box id="image-wrapper" position="absolute" insetX="0" insetY="0" w="full" h="full">
+        <Box w="vw" h="full">
           <Img
             src={imgUrl || ''}
             alt={alt}
             w="full"
             h="full"
             objectFit="cover"
-            objectPosition="top bottom"
             position="absolute"
           />
-        </MotionBox>
-      </MotionBox>
+        </Box>
+      </Box>
     </Box>
   );
 };

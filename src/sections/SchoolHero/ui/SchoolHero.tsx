@@ -1,37 +1,42 @@
 'use client';
-import {usePathname} from 'next/navigation';
+import {usePathname, useRouter} from 'next/navigation';
 import {ReactElement} from 'react';
-import {AppLink, List, Section} from '@/shared/ui';
-import {CustomLinkProps} from '@/shared/ui/AppLink/AppLink';
+import {Routes} from '@/shared/const/routes';
+import {Section} from '@/shared/ui';
+import {AppTabs} from '@/shared/ui/Tabs';
 
-type CustomLinkPropsList = CustomLinkProps & {id: string};
+const list = [
+  {
+    value: Routes.school.url,
+    label: Routes.school.name
+  },
+  {
+    value: Routes.management.url,
+    label: Routes.management.name
+  },
+  {
+    value: Routes.institutions.url,
+    label: Routes.institutions.name
+  }
+];
 
 export const SchoolHero = (): ReactElement => {
   const path = usePathname();
-  const list: CustomLinkPropsList[] = [
-    {
-      id: '1',
-      href: '/school',
-      label: 'Документи',
-      variant: path === '/school' ? 'primary' : 'outline'
-    },
-    {
-      id: '2',
-      href: '/school/management',
-      label: 'Керівництво',
-      variant: path === '/school/management' ? 'primary' : 'outline'
-    },
-    {
-      id: '3',
-      href: '/school/institutions',
-      label: 'Установи',
-      variant: path === '/school/institutions' ? 'primary' : 'outline'
-    }
-  ];
+  const router = useRouter();
+  const activeIndex = list.findIndex((item) => item.value === path);
+
+  const onSelect = (value: string): void => {
+    router.push(value);
+  };
 
   return (
     <Section>
-      <List<CustomLinkPropsList> row renderItem={AppLink} items={list || []} gap={3} />
+      <AppTabs<string>
+        defaultIndex={activeIndex === -1 ? 0 : activeIndex + 1}
+        variant="enclosed"
+        options={[...list]}
+        onChange={onSelect}
+      />
     </Section>
   );
 };

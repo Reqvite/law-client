@@ -3,6 +3,7 @@ import {usePathname, useRouter, useSearchParams} from 'next/navigation';
 import {ReactElement} from 'react';
 import {CategoryI} from '@/shared/types/category';
 import {AppTabs} from '@/shared/ui/Tabs';
+import {queryName} from '../../lib/const';
 
 type Props = {
   categories: CategoryI[];
@@ -22,9 +23,9 @@ export const NewsTabs = ({categories, category}: Props): ReactElement => {
   const onSelect = (value: string | number): void => {
     const current = new URLSearchParams(Array.from(searchParams.entries()));
     if (!value) {
-      current.delete('news-category');
+      current.delete(queryName);
     } else {
-      current.set('news-category', value as string);
+      current.set(queryName, value as string);
     }
     const search = current.toString();
     const query = search ? `?${search}` : '';

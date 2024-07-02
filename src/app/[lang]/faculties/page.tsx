@@ -1,3 +1,4 @@
+import {VisuallyHidden} from '@chakra-ui/react';
 import {Metadata} from 'next';
 import {getPageBySlug} from '@/shared/api/get-page-by-slug';
 import {FALLBACK_SEO} from '@/shared/const/fallbackSeo';
@@ -28,5 +29,10 @@ export default async function Faculties({params, searchParams}: PageProps) {
   const sections = contentSections.map((section: any, index: number) =>
     sectionRenderer(section, index, searchParams)
   );
-  return <>{sections}</>;
+  return (
+    <>
+      <VisuallyHidden as="h1">{page?.data[0].h1}</VisuallyHidden>
+      {sections}
+    </>
+  );
 }

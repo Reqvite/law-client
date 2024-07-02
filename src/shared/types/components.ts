@@ -48,6 +48,7 @@ export type CardPropsType = {
   description?: string;
   href?: string;
   list?: any;
+  createdAt: string;
   button?: any;
 };
 

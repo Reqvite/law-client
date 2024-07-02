@@ -1,6 +1,15 @@
-import {Card as CardChakra, CardBody, CardProps, Heading, Stack, Text} from '@chakra-ui/react';
+import {
+  Badge,
+  Card as CardChakra,
+  CardBody,
+  CardProps,
+  Heading,
+  Stack,
+  Text
+} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
+import {formateDate} from '@/shared/lib/helpers/formateDate';
 import {CardPropsType} from '@/shared/types/components';
 import {AppLink} from '../AppLink/AppLink';
 import {Image} from '../Image';
@@ -10,12 +19,12 @@ type StyleVariant = 'small' | 'medium' | 'large';
 type Props = CardProps & CardPropsType & {styleVariant?: StyleVariant};
 
 export const Card = ({
-  maxW = '300px',
   image,
   styleVariant,
   title,
   description,
   href,
+  createdAt,
   ...otherProps
 }: Props): ReactElement => {
   const alt = image?.alternativeText || '';
@@ -25,7 +34,17 @@ export const Card = ({
 
   if (styleVariant === 'medium') {
     content = (
-      <CardChakra maxW={maxW} {...otherProps} boxShadow="var(--chakra-shadows-cardShadow)">
+      <CardChakra
+        maxW={600}
+        boxShadow="var(--chakra-shadows-cardShadow)"
+        position="relative"
+        {...otherProps}
+      >
+        {createdAt && (
+          <Badge position="absolute" right={0}>
+            {formateDate(createdAt)}
+          </Badge>
+        )}
         <CardBody p={0}>
           {image && (
             <Image src={imageUrl} objectFit="fill" w="100%" h="250px" alt={alt} borderRadius="lg" />
@@ -43,7 +62,7 @@ export const Card = ({
     );
   } else if (styleVariant === 'large') {
     content = (
-      <CardChakra maxW={maxW} {...otherProps} boxShadow="var(--chakra-shadows-cardShadow)">
+      <CardChakra maxW="100%" boxShadow="var(--chakra-shadows-cardShadow)" {...otherProps}>
         <CardBody>
           {image && <Image src={imageUrl} alt={alt} borderRadius="lg" />}
           <Stack mt="6" spacing="3">
@@ -55,7 +74,7 @@ export const Card = ({
     );
   } else {
     content = (
-      <CardChakra maxW={maxW} {...otherProps}>
+      <CardChakra maxW={300} boxShadow="var(--chakra-shadows-cardShadow)" {...otherProps}>
         <CardBody>
           {image && (
             <Image

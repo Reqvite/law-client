@@ -1,7 +1,7 @@
-import {CardProps, GridItem, GridItemProps, Heading} from '@chakra-ui/react';
+import {GridItem, GridItemProps, Heading} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {CardPropsType} from '@/shared/types/components';
-import {List} from '@/shared/ui';
+import {AppGrid} from '@/shared/ui/AppGrid';
 import {Card} from '@/shared/ui/Card/Card';
 
 type Props = GridItemProps & {
@@ -10,16 +10,17 @@ type Props = GridItemProps & {
 };
 
 export const AboutUsBlock = ({data, title}: Props): ReactElement => {
+  const CardRender = (props: any) => <Card {...props} maxW={600} />;
   return (
     <GridItem>
       <Heading as="h2" mb={2}>
         {title}
       </Heading>
-      <List<CardPropsType & CardProps>
-        row
-        renderItem={Card}
+      <AppGrid
+        columnGap="3"
+        minChildWidth="285px"
+        renderItem={CardRender}
         items={data}
-        gap={2}
         justifyContent={{base: 'center', md: 'normal'}}
       />
     </GridItem>

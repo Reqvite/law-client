@@ -2,7 +2,8 @@ import {GridItem, GridItemProps} from '@chakra-ui/react';
 import {Heading} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {ArticleI} from '@/shared/types/article';
-import {ArticleCard, List} from '@/shared/ui';
+import {List} from '@/shared/ui';
+import {ActualCard} from '@/shared/ui/Card/ActualCard';
 type Props = GridItemProps & {
   data: ArticleI[];
   title?: string;
@@ -14,7 +15,7 @@ export const ActualBlock = ({data, title, ...otherProps}: Props): ReactElement =
       <Heading as="h2" mb={2}>
         {title}
       </Heading>
-      <List<ArticleI> items={data || []} renderItem={ArticleCard} gap={2} />
+      <List<ArticleI> items={data || []} renderItem={ActualCard} gap={2} />
     </GridItem>
   );
 };

@@ -1,9 +1,8 @@
-// /components/NextBreadcrumb.tsx
 'use client';
 
 import {Breadcrumb, BreadcrumbItem} from '@chakra-ui/react';
-import {usePathname} from 'next/navigation';
 import {ReactElement, ReactNode} from 'react';
+import {usePathnames} from '@/shared/lib/hooks';
 import {AppLink} from '../AppLink/AppLink';
 import {Section} from '../Section/Section';
 
@@ -13,9 +12,7 @@ type Props = {
 };
 
 export const NextBreadcrumb = ({homeElement, capitalizeLinks}: Props): ReactElement | null => {
-  const paths = usePathname();
-  const pathNames = paths.split('/').filter((path) => path);
-  const isMainPage = pathNames.length === 0;
+  const {path, isMainPage, pathNames} = usePathnames();
 
   if (isMainPage) {
     return null;
@@ -29,7 +26,7 @@ export const NextBreadcrumb = ({homeElement, capitalizeLinks}: Props): ReactElem
         </BreadcrumbItem>
         {pathNames.map((link, index) => {
           const href = `/${pathNames.slice(0, index + 1).join('/')}`;
-          const isCurrentPage = paths === href;
+          const isCurrentPage = path === href;
           const itemLink = capitalizeLinks
             ? link[0].toUpperCase() + link.slice(1, link.length)
             : link;

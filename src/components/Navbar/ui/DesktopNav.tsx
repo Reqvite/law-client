@@ -10,9 +10,9 @@ import {
   Text,
   useColorModeValue
 } from '@chakra-ui/react';
-import {usePathname} from 'next/navigation';
 import {ReactElement} from 'react';
 import {IoIosArrowDown} from 'react-icons/io';
+import {usePathnames} from '@/shared/lib/hooks';
 import type {NavLink, SubLink} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
 
@@ -20,9 +20,7 @@ type DesktopNavProps = {
   links: NavLink[];
 };
 export const DesktopNav = ({links}: DesktopNavProps): ReactElement => {
-  const paths = usePathname();
-  const pathNames = paths.split('/').filter((path) => path);
-  const isMainPage = pathNames.length === 0;
+  const {isMainPage} = usePathnames();
   const popoverContentBgColor = useColorModeValue(
     'var(--chakra-colors-mainBgColorLight)',
     'var(--chakra-colors-mainBgColorDark)'

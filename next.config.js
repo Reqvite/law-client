@@ -13,6 +13,15 @@ function getApiUrl(dev) {
 }
 
 module.exports = withBundleAnalyzer({
+  async redirects() {
+    return [
+      {
+        source: '/articles',
+        destination: '/articles/all',
+        permanent: true
+      }
+    ];
+  },
   images: {
     remotePatterns: [
       {

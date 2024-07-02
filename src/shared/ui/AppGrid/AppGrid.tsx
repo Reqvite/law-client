@@ -18,7 +18,7 @@ export const AppGrid = <T extends {id: string}>({
   return (
     <SimpleGrid
       as="ul"
-      columns={{base: 1, md: 1, lg: 2}}
+      columns={{base: 1, xs: 2, md: 3, lg: 4}}
       columnGap="8"
       rowGap={{base: 2, lg: 4}}
       {...otherProps}

@@ -1,26 +1,39 @@
-import {CardProps, Center, GridItemProps, Heading} from '@chakra-ui/react';
+import {Center, GridItemProps, Heading} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {fetchArticles} from '@/shared/api/getArticles';
 import {CategoryI} from '@/shared/types/category';
 import {ButtonType, CardPropsType} from '@/shared/types/components';
-import {AppLink, List, Section} from '@/shared/ui';
+import {AppLink, Section} from '@/shared/ui';
+import {AppGrid} from '@/shared/ui/AppGrid';
 import {Card} from '@/shared/ui/Card/Card';
+import {Pagination} from '@/shared/ui/Paginator';
+import {queryName} from './lib/const';
 import {getFetchArticlesParams} from './lib/getFetchArticlesParams';
 import {mappedList} from './lib/mappedList';
 import {NewsTabs} from './ui/NewsTabs/NewsTabs';
 
 type Props = GridItemProps & {
-  data: {title: string; list: CardPropsType[]; button: ButtonType; categories: CategoryI[]};
   title?: string;
-  searchParams: {[key: string]: string};
+  button?: ButtonType;
+  categories?: CategoryI[];
+  categoryValue?: string;
+  searchParams?: {[key: string]: string};
+  urlParams?: any;
+  withPagination?: boolean;
 };
 
-export const News = async ({data, searchParams}: Props): Promise<ReactElement> => {
-  const category = searchParams['news-category'];
-  const urlParamsObject = getFetchArticlesParams(category);
-  const {data: articles} = await fetchArticles({urlParamsObject});
-  const {title, button, categories} = data;
-  const {variant, label, href} = button;
+export const News = async ({
+  title,
+  button,
+  categories,
+  categoryValue = 'all',
+  searchParams,
+  urlParams,
+  withPagination
+}: Props): Promise<ReactElement> => {
+  const category = searchParams ? searchParams[queryName] : categoryValue;
+  const urlParamsObject = urlParams || getFetchArticlesParams(category);
+  const {data: articles, meta} = await fetchArticles({urlParamsObject});
   const newList = mappedList(articles);
 
   return (
@@ -29,16 +42,28 @@ export const News = async ({data, searchParams}: Props): Promise<ReactElement> =
         {title}
       </Heading>
       {categories && <NewsTabs categories={categories} category={category} />}
-      <List<CardPropsType & CardProps>
-        row
+      <AppGrid<CardPropsType>
+        minChildWidth="285px"
         renderItem={Card}
         items={newList || []}
-        gap={3}
         justifyContent="center"
       />
-      <Center mt={6}>
-        <AppLink size="lg" variant={variant} label={label} href={href || ''} />
-      </Center>
+      {button && (
+        <Center mt={6}>
+          <AppLink
+            size="lg"
+            variant={button.variant}
+            label={button.label}
+            href={button.href || ''}
+          />
+        </Center>
+      )}
+      {withPagination && (
+        <Pagination
+          totalResults={meta?.pagination?.total}
+          itemsPerPage={meta?.pagination?.pageSize}
+        />
+      )}
     </Section>
   );
 };

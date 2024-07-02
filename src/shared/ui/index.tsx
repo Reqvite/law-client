@@ -1,6 +1,5 @@
 export {Alert} from './Alert/Alert';
 export {AppLink} from './AppLink/AppLink';
-export {ArticleCard} from './Articles';
 export {LiteratureCard} from './Card/LiteratureCard';
 export {Form} from './form';
 export {List} from './List/List';

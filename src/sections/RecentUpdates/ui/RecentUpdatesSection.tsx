@@ -6,6 +6,9 @@ import {AboutUsBlock} from './AboutUsBlock/AboutUsBlock';
 import {ActualBlock} from './ActualBlock/ActualBlock';
 
 const urlParamsObject = {
+  populate: {
+    category: true
+  },
   sort: {createdAt: 'desc'},
   pagination: {limit: 10}
 };

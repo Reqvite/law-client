@@ -3,9 +3,9 @@ import {Tab, TabList, TabPanels, Tabs, TabsProps} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {TabOptionsI} from '@/shared/types/options';
 
-type Props<T> = Omit<TabsProps, 'children'> & {
+type Props<T> = Omit<TabsProps, 'children' | 'onChange'> & {
   options: TabOptionsI[];
-  onChange: (value: T) => void;
+  onChange?: (value: T) => void;
 };
 
 export const AppTabs = <T extends string>({

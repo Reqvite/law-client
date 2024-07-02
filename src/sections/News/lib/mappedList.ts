@@ -4,7 +4,8 @@ export const mappedList = (list: any): any[] => {
     description: el?.previewDescription,
     title: el?.title,
     styleVariant: 'medium',
-    href: `articles/${el?.slug}`,
-    image: el?.imgs?.[0]
+    href: `/articles/${el.category.slug}/${el?.slug}`,
+    image: el?.imgs?.[0],
+    createdAt: el.createdAt
   }));
 };

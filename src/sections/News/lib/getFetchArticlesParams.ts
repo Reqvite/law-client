@@ -1,6 +1,9 @@
 export const getFetchArticlesParams = (category: string): any => {
   const urlParamsObject: any = {
-    populate: 'imgs',
+    populate: {
+      imgs: true,
+      category: true
+    },
     sort: {createdAt: 'desc'},
     pagination: {limit: 8}
   };
