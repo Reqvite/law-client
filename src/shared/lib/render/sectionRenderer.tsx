@@ -1,20 +1,22 @@
-import {ArticlesCategories} from '@/sections/ArticlesCategories';
+import {ArticlesList} from '@/sections/ArticlesList/ArticlesList';
 import {ContactUs} from '@/sections/ContactUs';
 import {Faculties} from '@/sections/Faculties';
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
 import {LiteratureSection} from '@/sections/Literature';
 import {Management} from '@/sections/Management';
-import {News} from '@/sections/News/News';
 import {RecentUpdatesSection} from '@/sections/RecentUpdates';
 import {SearchParams} from '@/shared/types/pageParams';
 
-export function sectionRenderer(section: any, index: number, searchParams?: SearchParams) {
+export function sectionRenderer(
+  section: any,
+  index: number,
+  searchParams?: SearchParams,
+  params?: any
+) {
   switch (section.__component) {
     case 'blocks.hero':
       return <HeroSliderSection key={index} data={section} />;
-    case 'blocks.articles-categories':
-      return <ArticlesCategories key={index} {...section} />;
     case 'blocks.recent-updates':
       return <RecentUpdatesSection key={index} data={section} />;
     case 'blocks.submit-form':
@@ -22,7 +24,7 @@ export function sectionRenderer(section: any, index: number, searchParams?: Sear
     case 'blocks.contact-us':
       return <ContactUs key={index} {...section} />;
     case 'blocks.news-and-articles':
-      return <News key={index} {...section} searchParams={searchParams!} />;
+      return <ArticlesList key={index} {...section} searchParams={searchParams!} params={params} />;
     case 'blocks.literature':
       return <LiteratureSection key={index} data={section} />;
     case 'blocks.management':

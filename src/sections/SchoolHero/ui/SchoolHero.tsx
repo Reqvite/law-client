@@ -32,7 +32,7 @@ export const SchoolHero = (): ReactElement => {
   return (
     <Section>
       <AppTabs<string>
-        defaultIndex={activeIndex === -1 ? 0 : activeIndex + 1}
+        defaultIndex={activeIndex === -1 ? 0 : activeIndex}
         variant="enclosed"
         options={[...list]}
         onChange={onSelect}

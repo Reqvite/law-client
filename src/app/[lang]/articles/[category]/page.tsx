@@ -1,40 +1,20 @@
-import {News} from '@/sections/News/News';
-import {Section} from '@/shared/ui';
-
-const getParams = (category: string, page: string): any => {
-  const urlParamsObject: any = {
-    populate: {
-      imgs: true,
-      category: true
-    },
-    sort: {createdAt: 'desc'},
-    pagination: {pageSize: 9, page: page ? parseInt(page) : 1}
-  };
-  if (category && category !== 'all') {
-    urlParamsObject.filters = {
-      category: {
-        slug: {
-          $eq: category
-        }
-      }
-    };
-  }
-
-  return urlParamsObject;
-};
+import {getPageBySlug} from '@/shared/api/get-page-by-slug';
+import {urlParamsObject} from '@/shared/const/pageOptions';
+import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
 
 export default async function CategoryRoute({
   params,
   searchParams
 }: {
-  params: {category: string};
-  searchParams: {page: string};
+  params: {category: string; lang: string};
+  searchParams: any;
 }) {
-  const urlParamsObject = getParams(params.category, searchParams.page);
-
-  return (
-    <Section>
-      <News withPagination categoryValue={params.category} urlParams={urlParamsObject} />
-    </Section>
+  const page = await getPageBySlug('Articles', params.lang, urlParamsObject);
+  if (page?.data?.length === 0) return null;
+  const contentSections = page.data[0].sections;
+  const sections = contentSections.map((section: any, index: number) =>
+    sectionRenderer(section, index, searchParams, params)
   );
+
+  return sections;
 }

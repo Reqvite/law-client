@@ -1,11 +1,19 @@
-export const getFetchArticlesParams = (category: string): any => {
+export const getFetchArticlesParams = ({
+  category,
+  withPagination,
+  page
+}: {
+  category: string;
+  withPagination: boolean;
+  page: string;
+}): any => {
   const urlParamsObject: any = {
     populate: {
       imgs: true,
       category: true
     },
     sort: {createdAt: 'desc'},
-    pagination: {limit: 8}
+    pagination: withPagination ? {pageSize: 9, page: page ? parseInt(page) : 1} : {limit: 8}
   };
   if (category && category !== 'all') {
     urlParamsObject.filters = {
