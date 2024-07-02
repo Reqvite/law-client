@@ -5,8 +5,12 @@ export interface PageParams {
   lang: Locale;
 }
 
+export interface SearchParams {
+  searchParams: {[key: string]: string | string[] | undefined};
+}
+
 export interface PageProps {
   params: PageParams;
   children?: ReactNode;
-  searchParams?: {step?: string; interior?: string; exterior?: string};
+  searchParams: SearchParams;
 }

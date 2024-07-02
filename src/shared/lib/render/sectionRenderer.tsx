@@ -7,12 +7,9 @@ import {LiteratureSection} from '@/sections/Literature';
 import {Management} from '@/sections/Management';
 import {News} from '@/sections/News/News';
 import {RecentUpdatesSection} from '@/sections/RecentUpdates';
+import {SearchParams} from '@/shared/types/pageParams';
 
-export function sectionRenderer(
-  section: any,
-  index: number,
-  searchParams?: {[key: string]: string}
-) {
+export function sectionRenderer(section: any, index: number, searchParams?: SearchParams) {
   switch (section.__component) {
     case 'blocks.hero':
       return <HeroSliderSection key={index} data={section} />;
