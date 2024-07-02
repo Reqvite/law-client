@@ -1,3 +1,4 @@
+import {ReactNode} from 'react';
 import {Locale} from '@/config/i18n/i18n';
 
 export interface PageParams {
@@ -5,10 +6,11 @@ export interface PageParams {
 }
 
 export interface SearchParams {
-  searchParams: {[key: string]: string | string[] | undefined};
+  searchParams: never;
 }
 
 export interface PageProps {
   params: PageParams;
-  searchParams: SearchParams;
+  children?: ReactNode;
+  searchParams: never;
 }
