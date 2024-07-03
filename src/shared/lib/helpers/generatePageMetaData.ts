@@ -22,7 +22,7 @@ export async function generatePageMetaData({
     description: seo.metaDescription,
     keywords: seo.keywords,
     openGraph: {
-      ...(image?.url && {images: [getStrapiURL(image.url)]})
+      ...(image?.url && {images: getStrapiURL(image.url)})
     },
     alternates: {
       canonical: seo.canonicalURL
