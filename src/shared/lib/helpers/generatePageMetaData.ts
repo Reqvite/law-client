@@ -12,9 +12,9 @@ export async function generatePageMetaData({
   pageName: string;
 }): Promise<Metadata> {
   const page = await getPageBySlug(pageName, params.lang, urlParamsObject);
-  if (!page.data) return FALLBACK_SEO;
-  const {seo} = page.data[0];
-  const image = seo.metaImage;
+  if (!page.data[0]) return FALLBACK_SEO;
+  const seo = page?.data[0]?.seo;
+  const image = seo?.metaImage;
 
   const metadata: Metadata = {
     metadataBase: new URL(__FRONT_URL__),
@@ -22,8 +22,6 @@ export async function generatePageMetaData({
     description: seo.metaDescription,
     keywords: seo.keywords,
     openGraph: {
-      title: seo.metaTitle,
-      description: seo.metaDescription,
       ...(image?.url && {images: [getStrapiURL(image.url)]})
     },
     alternates: {
