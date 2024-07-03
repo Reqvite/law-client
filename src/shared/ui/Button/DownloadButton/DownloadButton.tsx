@@ -15,7 +15,9 @@ export const DownloadButton = ({link, ...otherProps}: Props): ReactElement => {
   return (
     <Tooltip label="Завантажити">
       <IconButton
-        variant="primary"
+        bg="black"
+        color="white"
+        variant="secondary"
         onClick={() => saveFile()}
         icon={<IoMdDownload />}
         {...otherProps}
