@@ -19,6 +19,16 @@ module.exports = withBundleAnalyzer({
         source: '/articles',
         destination: '/articles/all',
         permanent: true
+      },
+      {
+        source: '/resource-hub/literature',
+        destination: '/resource-hub/literature/all',
+        permanent: true
+      },
+      {
+        source: '/resource-hub',
+        destination: '/resource-hub/literature/all',
+        permanent: true
       }
     ];
   },

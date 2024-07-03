@@ -5,7 +5,13 @@ import {ManagementI} from '@/shared/types/management';
 import {Image} from '@/shared/ui/Image';
 type Props = ManagementI & StackProps;
 
-export const ManagementCard = ({fullname, image, role, maxW, maxH}: Props): ReactElement => {
+export const ManagementCard = ({
+  fullname,
+  image,
+  role,
+  maxW = '100%',
+  maxH
+}: Props): ReactElement => {
   return (
     <Stack maxW={maxW} maxH={maxH} spacing="4">
       <Stack spacing="5">
@@ -13,7 +19,8 @@ export const ManagementCard = ({fullname, image, role, maxW, maxH}: Props): Reac
           src={getStrapiMedia(image?.url)}
           objectFit="cover"
           alt={fullname}
-          h={150}
+          w="full"
+          h={{base: 400, md: 300}}
           borderRadius="lg"
         />
         <Stack spacing="1">

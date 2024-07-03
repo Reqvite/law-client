@@ -43,7 +43,7 @@ export const Management = ({title, description, management, image}: Props): Reac
       <AppGrid<ManagementI>
         items={management || []}
         renderItem={ManagementCard}
-        columns={{base: 1, md: 3, lg: 4}}
+        columns={{base: 2, md: 3, lg: 4}}
         columnGap="8"
         rowGap={{base: '10', lg: '16'}}
       />

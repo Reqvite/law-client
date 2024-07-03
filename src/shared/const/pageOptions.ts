@@ -1,6 +1,7 @@
 export const urlParamsObject = [
   'sections',
   'seo',
+  'sections.options',
   'sections.benefits',
   'sections.buttons',
   'sections.image',

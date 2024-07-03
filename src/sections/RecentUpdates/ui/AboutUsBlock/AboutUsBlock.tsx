@@ -10,7 +10,7 @@ type Props = GridItemProps & {
 };
 
 export const AboutUsBlock = ({data, title}: Props): ReactElement => {
-  const CardRender = (props: any) => <Card {...props} maxW={600} />;
+  const CardRender = (props: any) => <Card withoutAnimation {...props} maxW={600} />;
   return (
     <GridItem>
       <Heading as="h2" mb={2}>

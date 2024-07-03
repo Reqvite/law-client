@@ -3,6 +3,7 @@ import {getStrapiURL} from './api-helpers';
 
 export async function fetchAPI(path: string, urlParamsObject = {}, options = {}) {
   const token = process.env.NEXT_PUBLIC_STRAPI_API_TOKEN;
+
   try {
     const mergedOptions = {
       next: {revalidate: 60},

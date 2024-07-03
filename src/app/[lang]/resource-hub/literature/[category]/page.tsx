@@ -6,14 +6,14 @@ import {getPageData} from '@/shared/lib/helpers/getPageData';
 import {PageProps} from '@/shared/types/pageParams';
 
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
-  return await generatePageMetaData({params, pageName: 'Documents'});
+  return await generatePageMetaData({params, pageName: 'Literature'});
 }
 
-export default async function Documents({params, searchParams}: PageProps) {
+export default async function CategoryRoute({params, searchParams}: PageProps) {
   const page = await getPageData({
     params,
     searchParams,
-    pageName: 'Documents'
+    pageName: 'Literature'
   });
 
   if (!page) {

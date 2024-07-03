@@ -2,29 +2,18 @@
 import {usePathname} from 'next/navigation';
 import {useRouter} from 'next-nprogress-bar';
 import {ReactElement} from 'react';
-import {Routes} from '@/shared/const/routes';
+import {TabOptionsI} from '@/shared/types/options';
 import {Section} from '@/shared/ui';
 import {AppTabs} from '@/shared/ui/Tabs';
 
-const list = [
-  {
-    value: Routes.school.url,
-    label: Routes.school.name
-  },
-  {
-    value: Routes.management.url,
-    label: Routes.management.name
-  },
-  {
-    value: Routes.institutions.url,
-    label: Routes.institutions.name
-  }
-];
+type Props = {
+  options: TabOptionsI[];
+};
 
-export const SchoolHero = (): ReactElement => {
+export const PageNavigationTabs = ({options}: Props): ReactElement => {
   const path = usePathname();
   const router = useRouter();
-  const activeIndex = list.findIndex((item) => item.value === path);
+  const activeIndex = options.findIndex((item) => item.value === path);
 
   const onSelect = (value: string): void => {
     router.push(value);
@@ -35,7 +24,7 @@ export const SchoolHero = (): ReactElement => {
       <AppTabs<string>
         defaultIndex={activeIndex === -1 ? 0 : activeIndex}
         variant="enclosed"
-        options={[...list]}
+        options={options}
         onChange={onSelect}
       />
     </Section>

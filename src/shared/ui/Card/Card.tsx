@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
+import {cardAnimation} from '@/shared/const/animations';
 import {formateDate} from '@/shared/lib/helpers/formateDate';
 import {CardPropsType} from '@/shared/types/components';
 import {AppLink} from '../AppLink/AppLink';
@@ -16,7 +17,8 @@ import {Image} from '../Image';
 
 type StyleVariant = 'small' | 'medium' | 'large';
 
-type Props = CardProps & CardPropsType & {styleVariant?: StyleVariant};
+export type AppCardProps = CardProps &
+  CardPropsType & {styleVariant?: StyleVariant; withoutAnimation: boolean};
 
 export const Card = ({
   image,
@@ -25,10 +27,12 @@ export const Card = ({
   description,
   href,
   createdAt,
+  withoutAnimation,
   ...otherProps
-}: Props): ReactElement => {
+}: AppCardProps): ReactElement => {
   const alt = image?.alternativeText || '';
   const imageUrl = getStrapiMedia(image?.url || '');
+  const animation = withoutAnimation ? {} : cardAnimation;
 
   let content;
 
@@ -38,6 +42,7 @@ export const Card = ({
         maxW={600}
         boxShadow="var(--chakra-shadows-cardShadow)"
         position="relative"
+        sx={animation}
         {...otherProps}
       >
         {createdAt && (
@@ -62,7 +67,12 @@ export const Card = ({
     );
   } else if (styleVariant === 'large') {
     content = (
-      <CardChakra maxW="100%" boxShadow="var(--chakra-shadows-cardShadow)" {...otherProps}>
+      <CardChakra
+        maxW="100%"
+        boxShadow="var(--chakra-shadows-cardShadow)"
+        sx={animation}
+        {...otherProps}
+      >
         <CardBody>
           {image && <Image src={imageUrl} alt={alt} borderRadius="lg" />}
           <Stack mt="6" spacing="3">
@@ -74,7 +84,12 @@ export const Card = ({
     );
   } else {
     content = (
-      <CardChakra maxW={300} boxShadow="var(--chakra-shadows-cardShadow)" {...otherProps}>
+      <CardChakra
+        maxW={300}
+        boxShadow="var(--chakra-shadows-cardShadow)"
+        sx={animation}
+        {...otherProps}
+      >
         <CardBody>
           {image && (
             <Image

@@ -1,15 +1,12 @@
+import {CategoryI} from './category';
+import {FileDataAttributesType, ImgDataAttributesType} from './components';
+
 export interface LiteratureI {
   id: string;
   title: string;
   description: string;
-  href: {
-    data: {
-      id: number;
-      attributes: {
-        name: string;
-        url: string;
-      };
-    };
-  };
-  image: any;
+  slug: string;
+  file: FileDataAttributesType;
+  category: CategoryI;
+  image: ImgDataAttributesType;
 }

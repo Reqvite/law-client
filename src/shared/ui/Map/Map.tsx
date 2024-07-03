@@ -8,7 +8,7 @@ export const MapFrame = ({address}: MapFrameProps): ReactElement => {
   return (
     <iframe
       width="100%"
-      height="400px"
+      height="100%"
       src={address}
       allowFullScreen
       aria-hidden="false"

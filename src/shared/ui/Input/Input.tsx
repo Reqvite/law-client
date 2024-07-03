@@ -68,9 +68,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
             readOnly={readOnly}
             autoComplete="off"
             onChange={onChangeValue}
-            {...otherProps}
             type={inputType || 'text'}
             ref={ref}
+            {...otherProps}
           />
         </InputGroup>
         {helperText && <FormHelperText>{helperText}</FormHelperText>}

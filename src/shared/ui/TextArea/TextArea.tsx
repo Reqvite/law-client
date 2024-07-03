@@ -59,8 +59,8 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
           readOnly={readOnly}
           autoComplete="off"
           onChange={onChangeValue}
-          {...otherProps}
           ref={ref}
+          {...otherProps}
         />
         {helperText && <FormHelperText>{helperText}</FormHelperText>}
         {withError && (

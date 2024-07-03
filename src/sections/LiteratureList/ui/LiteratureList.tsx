@@ -1,17 +1,17 @@
 import {Center, GridItemProps} from '@chakra-ui/react';
 import {ReactElement} from 'react';
-import {fetchArticles} from '@/shared/api/getArticles';
+import {fetchLiterature} from '@/shared/api/getLiterature';
 import {CategoryI} from '@/shared/types/category';
 import {ButtonType} from '@/shared/types/components';
-import {AppLink, Section} from '@/shared/ui';
+import {LiteratureI} from '@/shared/types/literature';
+import {AppLink, LiteratureCard, Section} from '@/shared/ui';
 import {AppGrid} from '@/shared/ui/AppGrid';
 import {TitleWithDescription} from '@/shared/ui/Base/TitleWithDescription';
-import {AppCardProps, Card} from '@/shared/ui/Card/Card';
 import {Pagination} from '@/shared/ui/Paginator';
-import {queryName} from './lib/const';
-import {getFetchArticlesParams} from './lib/getFetchArticlesParams';
-import {mappedList} from './lib/mappedList';
-import {ArticlesListTabs} from './ui/ArticlesListTabs/ArticlesListTabs';
+import {queryName} from '../lib/const';
+import {getFetchLiteratureParams} from '../lib/getFetchArticlesParams';
+import {mappedList} from '../lib/mappedList';
+import {LiteratureListTabs} from './LiteratureListTabs/LiteratureListTabs';
 
 type Props = GridItemProps & {
   title?: string;
@@ -27,7 +27,7 @@ type Props = GridItemProps & {
 
 const defaultCategory = 'all';
 
-export const ArticlesList = async ({
+export const LiteratureList = async ({
   title,
   description,
   button,
@@ -37,13 +37,13 @@ export const ArticlesList = async ({
   params
 }: Props): Promise<ReactElement> => {
   const category = withPagination ? params.category : searchParams[queryName] || defaultCategory;
-  const urlParamsObject = getFetchArticlesParams({
+  const urlParamsObject = getFetchLiteratureParams({
     category,
     withPagination: Boolean(withPagination),
     page: searchParams?.page
   });
-  const {data: articles, meta} = await fetchArticles({urlParamsObject});
-  const newList = mappedList(articles);
+  const {data: literature, meta} = await fetchLiterature({urlParamsObject});
+  const newList = mappedList(literature);
 
   return (
     <Section>
@@ -55,15 +55,15 @@ export const ArticlesList = async ({
         />
       )}
       {categories && (
-        <ArticlesListTabs
+        <LiteratureListTabs
           withPagination={withPagination}
           categories={categories}
           category={category}
         />
       )}
-      <AppGrid<AppCardProps>
-        minChildWidth={withPagination ? '290px' : '285px'}
-        renderItem={Card}
+      <AppGrid<LiteratureI>
+        minChildWidth={withPagination ? '350px' : '300px'}
+        renderItem={LiteratureCard}
         items={newList || []}
         justifyContent="center"
       />
