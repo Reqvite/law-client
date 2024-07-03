@@ -1,7 +1,10 @@
-import {Image as ChackraImage, ImageProps} from '@chakra-ui/react';
+import {ImageProps as NextImageProps} from '@chakra-ui/react';
+import {ImageProps} from 'next/image';
 import {ReactElement} from 'react';
-type Props = ImageProps;
+import ChakraNextImage from './ChackraImage';
+
+type Props = ImageProps & NextImageProps;
 
 export const Image = (props: Props): ReactElement => {
-  return <ChackraImage {...props} />;
+  return <ChakraNextImage width="500" height="500" quality={70} objectFit="cover" {...props} />;
 };

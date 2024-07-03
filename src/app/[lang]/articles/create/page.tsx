@@ -1,14 +1,23 @@
-import {getPageBySlug} from '@/shared/api/get-page-by-slug';
-import {urlParamsObject} from '@/shared/const/pageOptions';
-import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
+import {VisuallyHidden} from '@chakra-ui/react';
+import {PageUnderConstruction} from '@/sections/UnderConstruction';
+import {getPageData} from '@/shared/lib/helpers/getPageData';
 import {PageProps} from '@/shared/types/pageParams';
 
-export default async function ArticleCreate({params}: PageProps) {
-  const page = await getPageBySlug('CreateArticle', params.lang, urlParamsObject);
-  if (page.data.length === 0) return null;
-  const contentSections = page.data[0].sections;
-  const sections = contentSections.map((section: any, index: number) =>
-    sectionRenderer(section, index)
+export default async function ArticleCreate({params, searchParams}: PageProps) {
+  const page = await getPageData({
+    params,
+    searchParams,
+    pageName: 'CreateArticle'
+  });
+
+  if (!page) {
+    return <PageUnderConstruction />;
+  }
+
+  return (
+    <>
+      {page.h1 && <VisuallyHidden as="h1">{page.h1}</VisuallyHidden>}
+      {page.sections}
+    </>
   );
-  return <>{sections}</>;
 }

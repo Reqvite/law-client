@@ -1,6 +1,6 @@
-import {Image} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {AppLink} from '../AppLink/AppLink';
+import {Image} from '../Image';
 
 type LogoProps = {
   logoUrl: string | null;
@@ -8,13 +8,13 @@ type LogoProps = {
 };
 export const Logo = ({logoUrl, logoText}: LogoProps): ReactElement => {
   return (
-    <AppLink variant={'link'} href={`/`}>
+    <AppLink variant="link" href="/">
       <Image
         src={logoUrl || ''}
         width={59}
         height={59}
-        borderRadius={'50%'}
-        alt={'Logo'}
+        borderRadius="50%"
+        alt="Logo"
         marginRight={3}
       />
       <p>{logoText}</p>

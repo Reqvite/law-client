@@ -1,9 +1,10 @@
 import {VisuallyHidden} from '@chakra-ui/react';
 import {Metadata} from 'next';
+import {PageUnderConstruction} from '@/sections/UnderConstruction';
 import {getPageBySlug} from '@/shared/api/get-page-by-slug';
 import {FALLBACK_SEO} from '@/shared/const/fallbackSeo';
 import {urlParamsObject} from '@/shared/const/pageOptions';
-import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
+import {getPageData} from '@/shared/lib/helpers/getPageData';
 import {PageProps} from '@/shared/types/pageParams';
 
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
@@ -23,16 +24,20 @@ export async function generateMetadata({params}: {params: {lang: string}}): Prom
 }
 
 export default async function Faculties({params, searchParams}: PageProps) {
-  const page = await getPageBySlug('Faculties', params.lang, urlParamsObject);
-  if (page?.data?.length === 0) return null;
-  const contentSections = page.data[0].sections;
-  const sections = contentSections.map((section: any, index: number) =>
-    sectionRenderer(section, index, searchParams)
-  );
+  const page = await getPageData({
+    params,
+    searchParams,
+    pageName: 'Faculties'
+  });
+
+  if (!page) {
+    return <PageUnderConstruction />;
+  }
+
   return (
     <>
-      <VisuallyHidden as="h1">{page?.data[0].h1}</VisuallyHidden>
-      {sections}
+      {page.h1 && <VisuallyHidden as="h1">{page.h1}</VisuallyHidden>}
+      {page.sections}
     </>
   );
 }

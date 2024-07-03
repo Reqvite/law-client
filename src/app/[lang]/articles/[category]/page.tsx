@@ -1,26 +1,23 @@
 import {VisuallyHidden} from '@chakra-ui/react';
-import {getPageBySlug} from '@/shared/api/get-page-by-slug';
-import {urlParamsObject} from '@/shared/const/pageOptions';
-import {sectionRenderer} from '@/shared/lib/render/sectionRenderer';
+import {PageUnderConstruction} from '@/sections/UnderConstruction';
+import {getPageData} from '@/shared/lib/helpers/getPageData';
+import {PageProps} from '@/shared/types/pageParams';
 
-export default async function CategoryRoute({
-  params,
-  searchParams
-}: {
-  params: {category: string; lang: string};
-  searchParams: any;
-}) {
-  const page = await getPageBySlug('Articles', params.lang, urlParamsObject);
-  if (page?.data?.length === 0) return null;
-  const contentSections = page.data[0].sections;
-  const sections = contentSections.map((section: any, index: number) =>
-    sectionRenderer(section, index, searchParams, params)
-  );
+export default async function CategoryRoute({params, searchParams}: PageProps) {
+  const page = await getPageData({
+    params,
+    searchParams,
+    pageName: 'Articles'
+  });
+
+  if (!page) {
+    return <PageUnderConstruction />;
+  }
 
   return (
     <>
-      <VisuallyHidden as="h1">{page?.data[0].h1}</VisuallyHidden>
-      {sections}
+      {page.h1 && <VisuallyHidden as="h1">{page.h1}</VisuallyHidden>}
+      {page.sections}
     </>
   );
 }
