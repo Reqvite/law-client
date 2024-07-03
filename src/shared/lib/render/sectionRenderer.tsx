@@ -3,7 +3,7 @@ import {ContactUs} from '@/sections/ContactUs';
 import {Faculties} from '@/sections/Faculties';
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
-import {LiteratureList} from '@/sections/LiteratureList/ui/LiteratureList';
+import {LiteratureList} from '@/sections/LiteratureList';
 import {Management} from '@/sections/Management';
 import {PageNavigationTabs} from '@/sections/PageNavigationTabs';
 import {RecentUpdatesSection} from '@/sections/RecentUpdates';

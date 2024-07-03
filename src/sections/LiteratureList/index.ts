@@ -1,1 +1,1 @@
-export {LiteratureSection} from './ui/LiteratureList';
+export {LiteratureList} from './ui/LiteratureList';
