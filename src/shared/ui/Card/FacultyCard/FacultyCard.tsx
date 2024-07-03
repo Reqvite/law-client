@@ -25,7 +25,14 @@ const getCarouselConfig = (): SwiperProps => {
       delay: 10000,
       disableOnInteraction: false
     },
-    slidesPerView: 4,
+    breakpoints: {
+      320: {
+        slidesPerView: 2
+      },
+      991: {
+        slidesPerView: 4
+      }
+    },
     spaceBetween: 20,
     speed: 600,
     loop: true,
@@ -47,7 +54,9 @@ export const FacultyCard = ({
   management
 }: Props): ReactElement => {
   const imageUrl = getStrapiMedia(image?.url);
-  const Card = (props: ManagementI): ReactElement => <ManagementCard {...props} maxW={350} />;
+  const Card = (props: ManagementI): ReactElement => (
+    <ManagementCard {...props} h={200} maxW={350} imageProps={{h: 200, w: 400}} />
+  );
 
   return (
     <Stack gap={2} boxShadow="var(--chakra-shadows-cardShadow)" p={5} borderRadius={10}>

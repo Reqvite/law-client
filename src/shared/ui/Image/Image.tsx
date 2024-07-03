@@ -3,8 +3,8 @@ import {ImageProps} from 'next/image';
 import {ReactElement} from 'react';
 import ChakraNextImage from './ChackraImage';
 
-type Props = ImageProps & NextImageProps;
+export type AppImageProps = ImageProps & NextImageProps;
 
-export const Image = (props: Props): ReactElement => {
+export const Image = (props: AppImageProps): ReactElement => {
   return <ChakraNextImage width="500" height="500" quality={70} objectFit="cover" {...props} />;
 };
