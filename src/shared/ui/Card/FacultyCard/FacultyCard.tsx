@@ -55,7 +55,7 @@ export const FacultyCard = ({
 }: Props): ReactElement => {
   const imageUrl = getStrapiMedia(image?.url);
   const Card = (props: ManagementI): ReactElement => (
-    <ManagementCard {...props} h={200} maxW={350} imageProps={{h: 200, w: 400}} />
+    <ManagementCard {...props} h={180} maxW={350} imageProps={{h: 150, w: 400}} />
   );
 
   return (
