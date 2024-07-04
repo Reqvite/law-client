@@ -1,7 +1,7 @@
 'use client';
 import {IconButton, IconButtonProps, Text} from '@chakra-ui/react';
 import {saveAs} from 'file-saver';
-import {ReactElement} from 'react';
+import {MouseEvent, ReactElement} from 'react';
 import {IoMdDownload} from 'react-icons/io';
 import {Tooltip} from '../../Tooltip';
 type Props = Omit<IconButtonProps, 'aria-label'> & {
@@ -16,7 +16,8 @@ export const DownloadButton = ({
   variant = 'button',
   ...otherProps
 }: Props): ReactElement => {
-  const saveFile = (): void => {
+  const saveFile = (e: MouseEvent): void => {
+    e.stopPropagation();
     saveAs(link, title);
   };
   let component;
@@ -27,7 +28,7 @@ export const DownloadButton = ({
         bg="black"
         color="white"
         variant="secondary"
-        onClick={() => saveFile()}
+        onClick={(e) => saveFile(e)}
         icon={<IoMdDownload />}
         {...otherProps}
         aria-label="Download file"
@@ -35,7 +36,12 @@ export const DownloadButton = ({
     );
   }
   if (variant === 'text') {
-    return <Text onClick={() => saveFile()}>Завантажити</Text>;
+    return (
+      //@ts-expect-error ///
+      <Text _hover={{color: 'black'}} onClick={(e) => saveFile(e)} {...otherProps}>
+        Завантажити
+      </Text>
+    );
   }
 
   return <Tooltip label="Завантажити">{component}</Tooltip>;

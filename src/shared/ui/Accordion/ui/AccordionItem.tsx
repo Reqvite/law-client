@@ -24,7 +24,9 @@ export const AppAccordionItem = ({title, description, file}: Props): ReactElemen
           <Box as="span" flex="1" textAlign="left">
             {title}
           </Box>
-          {file && <DownloadButton variant="text" title={title} link={getStrapiMedia(file?.url)} />}
+          {file && (
+            <DownloadButton mr={2} variant="text" title={title} link={getStrapiMedia(file?.url)} />
+          )}
           <AccordionIcon />
         </AccordionButton>
       </Heading>
