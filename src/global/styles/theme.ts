@@ -129,29 +129,27 @@ export const getTheme = (colorMode: string) => {
       },
       Checkbox: checkboxTheme,
       Tabs: {
-        baseStyle: {
-          tab: {
-            _selected: {
-              color: 'var(--chakra-colors-accentColor)',
-              borderColor: 'var(--chakra-colors-accentColor)'
-            }
-          },
-          tablist: {
-            borderBottom: '2px solid',
-            borderColor: 'var(--chakra-colors-accentColor)',
-            overflowX: 'auto',
-            '::-webkit-scrollbar': {
-              height: '8px'
-            },
-            '::-webkit-scrollbar-thumb': {
-              backgroundColor: 'gray.400',
-              borderRadius: '24px'
-            },
-            '::-webkit-scrollbar-thumb:hover': {
-              backgroundColor: 'gray.500'
-            },
-            '::-webkit-scrollbar-track': {
-              backgroundColor: 'gray.200'
+        variants: {
+          line: {
+            tab: {
+              color: 'gray.600',
+              borderColor: 'transparent',
+              bg: 'gray.100',
+              _hover: {
+                bg: 'gray.200'
+              },
+              _selected: {
+                borderColor: 'var(--chakra-colors-accentColor)',
+                color: 'white',
+                bg: 'var(--chakra-colors-accentColor)',
+                _hover: {
+                  bg: 'var(--chakra-colors-accentColor)',
+                  opacity: 0.8
+                }
+              },
+              _focus: {
+                boxShadow: 'none'
+              }
             }
           }
         }

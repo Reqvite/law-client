@@ -29,7 +29,7 @@ export const Pagination: React.FC<PaginationProps> = ({
 
   return (
     <Flex direction="row" justifyContent="space-between" alignItems="center" mt={5}>
-      <Text fontSize="lg">{`${totalResults} результатів`}</Text>
+      <Text fontSize="lg">{`${totalResults} знайдено`}</Text>
       <Flex alignItems="center" ml={4}>
         <PaginationButton onClick={() => prevPage()} isDisabled={!canPrevPage}>
           <Icon as={FaChevronLeft} w={3.5} h={3.5} />

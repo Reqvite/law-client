@@ -44,6 +44,9 @@ export const LiteratureList = async ({
   });
   const {data: literature, meta} = await fetchLiterature({urlParamsObject});
   const newList = mappedList(literature);
+  const renderItem = (props: LiteratureI) => (
+    <LiteratureCard {...props} styleVariant={withPagination ? 'withDescription' : 'none'} />
+  );
 
   return (
     <Section>
@@ -63,7 +66,7 @@ export const LiteratureList = async ({
       )}
       <AppGrid<LiteratureI>
         minChildWidth={withPagination ? '350px' : '300px'}
-        renderItem={LiteratureCard}
+        renderItem={renderItem}
         items={newList || []}
         justifyContent="center"
       />
