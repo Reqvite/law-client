@@ -3,6 +3,7 @@ import {ContactUs} from '@/sections/ContactUs';
 import {Faculties} from '@/sections/Faculties';
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
+import {LawsList} from '@/sections/LawsList/LawsList';
 import {LiteratureList} from '@/sections/LiteratureList';
 import {Management} from '@/sections/Management';
 import {PageNavigationTabs} from '@/sections/PageNavigationTabs';
@@ -34,6 +35,8 @@ export function sectionRenderer(
       return (
         <LiteratureList key={index} {...section} searchParams={searchParams!} params={params} />
       );
+    case 'blocks.laws-list':
+      return <LawsList key={index} {...section} searchParams={searchParams!} params={params} />;
     case 'blocks.management':
       return <Management key={index} {...section} />;
     case 'blocks.faculties':

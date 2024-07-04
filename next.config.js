@@ -16,6 +16,11 @@ module.exports = withBundleAnalyzer({
   async redirects() {
     return [
       {
+        source: '/laws',
+        destination: '/laws/all',
+        permanent: true
+      },
+      {
         source: '/articles',
         destination: '/articles/all',
         permanent: true

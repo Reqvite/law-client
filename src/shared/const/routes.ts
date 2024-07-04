@@ -11,6 +11,11 @@ export const Routes = {
     url: '/school/management',
     name: 'Керівництво'
   },
+  laws: {
+    url: '/laws',
+    name: 'Закони'
+  },
+  // ARTICLES
   articles: {
     url: '/articles',
     name: 'Статті'

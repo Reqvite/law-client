@@ -29,10 +29,7 @@ export const LiteratureListTabs = ({
     label: category.title
   }));
   const activeIndex = categories.findIndex((el) =>
-    withPagination
-      ? `${Routes.literature.url}/${el.slug}` === pathname
-      : //@ts-expect-error ///
-        (el.slug === category) === pathname
+    withPagination ? `${Routes.literature.url}/${el.slug}` === pathname : el.slug === category
   );
 
   const onSelect = (value: string): void => {

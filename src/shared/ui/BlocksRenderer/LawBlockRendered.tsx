@@ -7,7 +7,7 @@ type Props = {
   description: BlocksContent;
 };
 
-export const ArticleBlockRendered = ({description}: Props): ReactElement => {
+export const LawBlockRendered = ({description}: Props): ReactElement => {
   return (
     <BlocksRenderer
       content={description}

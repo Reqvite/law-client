@@ -35,7 +35,7 @@ export const LiteratureCard = ({
           w="100%"
           p={2}
         >
-          <DownloadButton link={link} />
+          <DownloadButton link={link} title={title} />
         </Flex>
         <AppLink w="full" maxW="100%" href={''}>
           {image && <Image src={imageUrl} objectFit="cover" w="100%" h="500px" alt={alt} />}
