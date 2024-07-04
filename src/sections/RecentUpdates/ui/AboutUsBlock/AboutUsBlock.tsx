@@ -1,21 +1,20 @@
-import {GridItem, GridItemProps, Heading} from '@chakra-ui/react';
+import {GridItem, GridItemProps} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {CardPropsType} from '@/shared/types/components';
 import {AppGrid} from '@/shared/ui/AppGrid';
+import {TitleWithDescription} from '@/shared/ui/Base/TitleWithDescription';
 import {Card} from '@/shared/ui/Card/Card';
 
 type Props = GridItemProps & {
   data: CardPropsType[];
-  title?: string;
+  title: string;
 };
 
 export const AboutUsBlock = ({data, title}: Props): ReactElement => {
   const CardRender = (props: any) => <Card withoutAnimation {...props} maxW={600} />;
   return (
     <GridItem>
-      <Heading as="h2" mb={2}>
-        {title}
-      </Heading>
+      <TitleWithDescription title={title} />
       <AppGrid
         columnGap="3"
         minChildWidth="285px"

@@ -3,7 +3,7 @@ export function getStrapiURL(path = '') {
 }
 
 export function getStrapiMedia(url: string | null) {
-  if (url == null) {
+  if (url === null || typeof url !== 'string') {
     return '';
   }
 

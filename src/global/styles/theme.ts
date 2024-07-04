@@ -75,6 +75,13 @@ export const getTheme = (colorMode: string) => {
     },
     components: {
       Button: buttonTheme,
+      Heading: {
+        sizes: {
+          '4xl': {
+            fontSize: {base: '30px', md: '40px', lg: '72px', xl: '90px'}
+          }
+        }
+      },
       Form: {
         variants: {
           floating: {

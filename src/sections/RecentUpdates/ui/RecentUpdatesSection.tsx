@@ -7,7 +7,8 @@ import {ActualBlock} from './ActualBlock/ActualBlock';
 
 const urlParamsObject = {
   populate: {
-    category: true
+    category: true,
+    imgs: true
   },
   sort: {createdAt: 'desc'},
   pagination: {limit: 10}
@@ -16,8 +17,8 @@ const urlParamsObject = {
 type Props = {
   data: {
     list1?: CardPropsType[];
-    title1?: string;
-    title2?: string;
+    title1: string;
+    title2: string;
   };
 };
 
@@ -25,7 +26,7 @@ export const RecentUpdatesSection = async ({data}: Props) => {
   const {data: articles} = await fetchArticles({urlParamsObject});
   return (
     <Section>
-      <Grid templateColumns={{base: '1fr', md: '75% 25%'}} gap={4}>
+      <Grid templateColumns={{base: '1fr', md: '72% 28%'}} gap={4}>
         <AboutUsBlock data={data?.list1 || []} title={data?.title1} />
         <ActualBlock data={articles} title={data.title2} />
       </Grid>

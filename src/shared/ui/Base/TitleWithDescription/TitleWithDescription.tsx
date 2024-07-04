@@ -20,10 +20,10 @@ export const TitleWithDescription = ({
   button
 }: Props): ReactElement => {
   return (
-    <Stack {...stackProps}>
+    <Stack {...stackProps} mb={1}>
       {button ? (
         <Flex alignItems="center" justifyContent="space-between">
-          <Heading as="h2" fontSize={{base: 'sm', md: '3xl'}} {...headingProps}>
+          <Heading as="h2" fontSize={{base: 'xl', md: '3xl'}} {...headingProps}>
             {title}
           </Heading>
           <AppLink
@@ -34,7 +34,7 @@ export const TitleWithDescription = ({
           />
         </Flex>
       ) : (
-        <Heading as="h2" fontSize={{base: 'sm', md: '3xl'}} {...headingProps}>
+        <Heading as="h2" fontSize={{base: 'xl', md: '3xl'}} {...headingProps}>
           {title}
         </Heading>
       )}
