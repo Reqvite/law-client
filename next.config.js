@@ -4,12 +4,12 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
   enabled: process.env.ANALYZE === 'true'
 });
 
-function getFrontUrl(dev) {
-  return dev ? 'http://localhost:3000' : 'https://law-client-demo.vercel.app';
+function getFrontUrl() {
+  return process.env.NEXT_PUBLIC_FRONT_URL;
 }
 
-function getApiUrl(dev) {
-  return dev ? 'http://localhost:1400' : 'https://strapi-9z7b.onrender.com';
+function getApiUrl() {
+  return process.env.NEXT_PUBLIC_API_URL;
 }
 
 module.exports = withBundleAnalyzer({
