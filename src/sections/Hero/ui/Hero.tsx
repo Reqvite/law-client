@@ -34,7 +34,7 @@ export const Hero = ({title, description, buttons, image}: HeroProps): ReactElem
         >
           <Box ml="auto" mr="auto" maxW="xl">
             <Center flexDirection="column" textAlign="center" color="white" h="full">
-              <Heading as="h1" size="2xl" fontWeight="extrabold">
+              <Heading as="h2" size="2xl" fontWeight="extrabold">
                 {title}
               </Heading>
               <Text fontWeight="medium" mt="3" fontSize={{md: '2xl'}} maxW="lg">
