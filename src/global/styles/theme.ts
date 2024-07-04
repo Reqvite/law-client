@@ -59,7 +59,7 @@ export const getTheme = (colorMode: string) => {
       borderMain: '2px solid var(--chakra-colors-accentColor)'
     },
     sizes: {
-      headerHeight: '75px',
+      headerHeight: '90px',
       drawerFooterHeight: '113px',
       drawerWidth: '380px'
     },
@@ -75,13 +75,6 @@ export const getTheme = (colorMode: string) => {
     },
     components: {
       Button: buttonTheme,
-      Heading: {
-        sizes: {
-          '4xl': {
-            fontSize: {base: '30px', md: '40px', lg: '72px', xl: '90px'}
-          }
-        }
-      },
       Form: {
         variants: {
           floating: {

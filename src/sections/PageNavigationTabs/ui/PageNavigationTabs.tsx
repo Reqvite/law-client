@@ -23,7 +23,6 @@ export const PageNavigationTabs = ({options}: Props): ReactElement => {
     <Section>
       <AppTabs<string>
         defaultIndex={activeIndex === -1 ? 0 : activeIndex}
-        variant="enclosed"
         options={options}
         onChange={onSelect}
       />

@@ -11,6 +11,7 @@ import {
 import {ReactElement} from 'react';
 import {IoClose} from 'react-icons/io5';
 import {RxHamburgerMenu} from 'react-icons/rx';
+import {usePathnames} from '@/shared/lib/hooks';
 import type {ButtonType, NavLink} from '@/shared/types/components';
 import {AppLink, Logo} from '@/shared/ui';
 import {DesktopNav} from './DesktopNav';
@@ -25,6 +26,7 @@ interface Props {
 
 export const Navbar = ({links, buttons, logoUrl, logoText}: Props): ReactElement => {
   const {isOpen, onToggle} = useDisclosure();
+  const {isMainPage} = usePathnames();
   const headerBg = useColorModeValue(
     'var(--chakra-colors-secondaryBgColorLightTransparent)',
     'var(--chakra-colors-secondaryBgColorDarkTransparent)'
@@ -34,7 +36,7 @@ export const Navbar = ({links, buttons, logoUrl, logoText}: Props): ReactElement
     <Box
       as="header"
       css={{backdropFilter: 'blur(4px)'}}
-      background={headerBg}
+      background={isMainPage ? headerBg : '#f3f3f3'}
       position="absolute"
       zIndex="var(--chakra-zIndices-navbar)"
       width="100%"

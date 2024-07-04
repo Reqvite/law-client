@@ -4,7 +4,7 @@ type Props = BoxProps & PropsWithChildren;
 
 export const Section = ({children, ...otherProps}: Props): ReactElement => {
   return (
-    <Container as="section" maxW="7xl" py={3} {...otherProps}>
+    <Container as="section" maxW="7xl" py={4} {...otherProps}>
       <Stack spacing={3}>{children}</Stack>
     </Container>
   );
