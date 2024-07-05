@@ -1,11 +1,12 @@
 'use client';
 
-import {Box, Center, Flex, Heading, Img, Stack, Text} from '@chakra-ui/react';
+import {Box, Center, Flex, Heading, Stack, Text} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
 import {useGetLang} from '@/shared/lib/hooks/useGetLang';
 import {ButtonType, ImgDataAttributesType} from '@/shared/types/components';
 import {AppLink} from '@/shared/ui';
+import {Image} from '@/shared/ui/Image';
 
 export type HeroProps = {
   id: string;
@@ -58,11 +59,12 @@ export const Hero = ({title, description, buttons, image}: HeroProps): ReactElem
       </Box>
       <Box id="image-wrapper" position="absolute" insetX="0" insetY="0" w="full" h="full">
         <Box w="vw" h="full">
-          <Img
+          <Image
             src={imgUrl || ''}
             alt={alt}
             w="full"
             h="full"
+            quality={100}
             objectFit="cover"
             position="absolute"
           />
