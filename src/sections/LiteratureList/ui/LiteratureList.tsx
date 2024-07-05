@@ -42,8 +42,8 @@ export const LiteratureList = async ({
     withPagination: Boolean(withPagination),
     page: searchParams?.page
   });
-  const {data: literature, meta} = await fetchLiterature({urlParamsObject});
-  const newList = mappedList(literature);
+  const list = await fetchLiterature({urlParamsObject});
+  const newList = mappedList(list?.data);
   const renderItem = (props: LiteratureI) => (
     <LiteratureCard {...props} styleVariant={withPagination ? 'withDescription' : 'none'} />
   );
@@ -82,8 +82,8 @@ export const LiteratureList = async ({
       )}
       {withPagination && (
         <Pagination
-          totalResults={meta?.pagination?.total}
-          itemsPerPage={meta?.pagination?.pageSize}
+          totalResults={list?.meta?.pagination?.total}
+          itemsPerPage={list?.meta?.pagination?.pageSize}
         />
       )}
     </Section>

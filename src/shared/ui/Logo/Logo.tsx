@@ -1,3 +1,4 @@
+import {Text} from '@chakra-ui/react';
 import {ReactElement} from 'react';
 import {AppLink} from '../AppLink/AppLink';
 import {Image} from '../Image';
@@ -17,7 +18,7 @@ export const Logo = ({logoUrl, logoText}: LogoProps): ReactElement => {
         alt="Logo"
         marginRight={3}
       />
-      <p>{logoText}</p>
+      <Text>{logoText}</Text>
     </AppLink>
   );
 };

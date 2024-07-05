@@ -71,7 +71,7 @@ export const FacultyCard = ({
           borderRadius="lg"
           src={imageUrl}
           h={500}
-          alt={title1}
+          alt={image.alternativeText || title1}
           objectFit="fill"
         />
         <Stack display="flex" flex="1" justifyContent="flex-start" marginTop={{base: '3', sm: '0'}}>

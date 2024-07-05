@@ -1,5 +1,6 @@
-import {Center, SimpleGrid, SimpleGridProps} from '@chakra-ui/react';
+import {SimpleGrid, SimpleGridProps} from '@chakra-ui/react';
 import {FunctionComponent, ReactElement} from 'react';
+import {EmptyMessageBlock} from '../Base/EmptyMessageBlock';
 
 type Props<T> = SimpleGridProps & {
   items: T[];
@@ -12,7 +13,7 @@ export const AppGrid = <T extends {id: string}>({
   ...otherProps
 }: Props<T>): ReactElement => {
   if (!items.length) {
-    return <Center>Нічого не знайдено</Center>;
+    return <EmptyMessageBlock />;
   }
 
   return (

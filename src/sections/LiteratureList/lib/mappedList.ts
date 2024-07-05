@@ -1,6 +1,9 @@
 import {LiteratureI} from '@/shared/types/literature';
 
-export const mappedList = (list: LiteratureI[]): any[] => {
+export const mappedList = (list?: LiteratureI[]): any[] => {
+  if (!list) {
+    return [];
+  }
   return list?.map((el) => ({
     id: el.id,
     description: el?.description,

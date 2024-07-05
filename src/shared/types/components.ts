@@ -94,3 +94,18 @@ export type ImgDataType = {
   id: number;
   attributes: ImgDataAttributesType;
 };
+
+export type StrapiUrlParams = {
+  populate?: string | Record<string, any>;
+  filters?: Record<string, any>;
+  locale?: string | string[];
+  publicationState?: 'live' | 'preview';
+  sort?: string | string[];
+  pagination?: {
+    total?: number;
+    page?: number;
+    pageSize?: number;
+    start?: number;
+    limit?: number;
+  };
+};

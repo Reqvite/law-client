@@ -1,4 +1,9 @@
-export const mappedList = (list: any): any[] => {
+import {ArticleI} from '@/shared/types/article';
+
+export const mappedList = (list?: ArticleI[]): any[] => {
+  if (!list) {
+    return [];
+  }
   return list?.map((el: any) => ({
     id: el.id,
     description: el?.previewDescription,

@@ -1,3 +1,4 @@
+import {BlocksContent} from '@strapi/blocks-react-renderer';
 import {CategoryI} from './category';
 import {ImgDataAttributesType} from './components';
 
@@ -7,7 +8,7 @@ interface ArticleI {
   category: CategoryI;
   previewDescription: string;
   imgs: ImgDataAttributesType[];
-  description: string;
+  description: BlocksContent;
   slug: string;
   createdAt: string;
   updatedAt: string;

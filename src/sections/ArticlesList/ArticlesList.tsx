@@ -42,8 +42,8 @@ export const ArticlesList = async ({
     withPagination: Boolean(withPagination),
     page: searchParams?.page
   });
-  const {data: articles, meta} = await fetchArticles({urlParamsObject});
-  const newList = mappedList(articles);
+  const articles = await fetchArticles({urlParamsObject});
+  const newList = mappedList(articles?.data);
 
   return (
     <Section>
@@ -79,8 +79,8 @@ export const ArticlesList = async ({
       )}
       {withPagination && (
         <Pagination
-          totalResults={meta?.pagination?.total}
-          itemsPerPage={meta?.pagination?.pageSize}
+          totalResults={articles?.meta?.pagination?.total}
+          itemsPerPage={articles?.meta?.pagination?.pageSize}
         />
       )}
     </Section>

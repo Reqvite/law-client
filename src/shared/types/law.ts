@@ -3,6 +3,7 @@ import {CategoryI} from './category';
 import {FileDataAttributesType} from './components';
 
 export interface LawI {
+  id: string;
   title: string;
   description: BlocksContent;
   slug: string;

@@ -3,6 +3,7 @@ import {ReactElement} from 'react';
 import {fetchLaws} from '@/shared/api/getLaws';
 import {CategoryI} from '@/shared/types/category';
 import {ButtonType} from '@/shared/types/components';
+import {LawI} from '@/shared/types/law';
 import {AppLink, Section} from '@/shared/ui';
 import {AppAccordion} from '@/shared/ui/Accordion';
 import {TitleWithDescription} from '@/shared/ui/Base/TitleWithDescription';
@@ -40,7 +41,7 @@ export const LawsList = async ({
     withPagination: Boolean(withPagination),
     page: searchParams?.page
   });
-  const {data: laws, meta} = await fetchLaws({urlParamsObject});
+  const list = await fetchLaws({urlParamsObject});
 
   return (
     <Section>
@@ -54,7 +55,7 @@ export const LawsList = async ({
       {categories && (
         <LawsListTabs withPagination={withPagination} categories={categories} category={category} />
       )}
-      <AppAccordion items={laws} />
+      <AppAccordion<LawI> items={list?.data} />
       {button && (
         <Center mt={6}>
           <AppLink
@@ -67,8 +68,8 @@ export const LawsList = async ({
       )}
       {withPagination && (
         <Pagination
-          totalResults={meta?.pagination?.total}
-          itemsPerPage={meta?.pagination?.pageSize}
+          totalResults={list?.meta?.pagination?.total}
+          itemsPerPage={list?.meta?.pagination?.pageSize}
         />
       )}
     </Section>

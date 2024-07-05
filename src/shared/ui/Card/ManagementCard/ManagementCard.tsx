@@ -24,7 +24,7 @@ export const ManagementCard = ({
         <Image
           src={getStrapiMedia(image?.url)}
           objectFit="cover"
-          alt={fullname}
+          alt={image.alternativeText || fullname}
           w="full"
           h={{base: 400, md: 300}}
           borderRadius="lg"

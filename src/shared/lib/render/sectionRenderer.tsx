@@ -20,7 +20,14 @@ export function sectionRenderer(
     case 'blocks.hero':
       return <HeroSliderSection key={index} data={section} />;
     case 'blocks.recent-updates':
-      return <RecentUpdatesSection key={index} data={section} />;
+      return (
+        <RecentUpdatesSection
+          key={index}
+          {...section}
+          searchParams={searchParams!}
+          params={params}
+        />
+      );
     case 'blocks.submit-form':
       return <FormSection key={index} data={section} />;
     case 'blocks.page-navigation-tabs':

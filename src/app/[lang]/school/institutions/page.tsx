@@ -1,7 +1,7 @@
 import {VisuallyHidden} from '@chakra-ui/react';
 import {Metadata} from 'next';
 import {PageUnderConstruction} from '@/sections/UnderConstruction';
-import {generatePageMetaData} from '@/shared/lib/helpers/generatePageMetaData';
+import {generatePageMetaData} from '@/shared/api/generatePageMetaData';
 import {getPageData} from '@/shared/lib/helpers/getPageData';
 import {PageProps} from '@/shared/types/pageParams';
 

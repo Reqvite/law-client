@@ -1,7 +1,8 @@
 'use client'; // Error components must be Client Components
 
-import {Button, Container, Heading, VStack} from '@chakra-ui/react';
+import {Button, Heading, VStack} from '@chakra-ui/react';
 import {useEffect} from 'react';
+import {Section} from '@/shared/ui';
 
 export default function Error({
   error,
@@ -15,13 +16,13 @@ export default function Error({
   }, [error]);
 
   return (
-    <Container as="main" pt={300}>
+    <Section as="main" display="flex" h="100vh" justifyContent="center" alignItems="center">
       <VStack spacing={5}>
-        <Heading as={'h1'}>Something went wrong..</Heading>
-        <Button variant={'primary'} onClick={() => reset()}>
+        <Heading as="h1">Something went wrong..</Heading>
+        <Button variant="primary" onClick={() => reset()}>
           Reload page
         </Button>
       </VStack>
-    </Container>
+    </Section>
   );
 }
