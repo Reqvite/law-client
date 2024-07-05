@@ -3,12 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "check-types": "tsc --noemit",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && npm run check-types",
     "lint-staged": "lint-staged",
-    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix && npm run check-types",
     "prepare": "husky"
   },
   "dependencies": {

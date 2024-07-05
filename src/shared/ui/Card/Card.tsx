@@ -36,7 +36,7 @@ export const Card = ({
   imageProps,
   ...otherProps
 }: AppCardProps): ReactElement => {
-  const alt = image?.alternativeText || title;
+  const alt = image?.alternativeText || title || '';
   const imageUrl = getStrapiMedia(image?.url || '');
   const animation = withoutAnimation ? {} : cardAnimation;
 
