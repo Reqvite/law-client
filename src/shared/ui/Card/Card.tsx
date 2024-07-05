@@ -14,11 +14,16 @@ import {formateDate} from '@/shared/lib/helpers/formateDate';
 import {CardPropsType} from '@/shared/types/components';
 import {AppLink} from '../AppLink/AppLink';
 import {Image} from '../Image';
+import {AppImageProps} from '../Image/Image';
 
 type StyleVariant = 'small' | 'medium' | 'large';
 
 export type AppCardProps = CardProps &
-  CardPropsType & {styleVariant?: StyleVariant; withoutAnimation: boolean};
+  CardPropsType & {
+    styleVariant?: StyleVariant;
+    withoutAnimation?: boolean;
+    imageProps?: AppImageProps;
+  };
 
 export const Card = ({
   image,
@@ -28,6 +33,7 @@ export const Card = ({
   href,
   createdAt,
   withoutAnimation,
+  imageProps,
   ...otherProps
 }: AppCardProps): ReactElement => {
   const alt = image?.alternativeText || '';
@@ -52,7 +58,15 @@ export const Card = ({
         )}
         <CardBody p={0}>
           {image && (
-            <Image src={imageUrl} objectFit="fill" w="100%" h="250px" alt={alt} borderRadius="lg" />
+            <Image
+              src={imageUrl}
+              objectFit="fill"
+              w="100%"
+              h="250px"
+              alt={alt}
+              borderRadius="lg"
+              {...imageProps}
+            />
           )}
           <Stack spacing="3" p={5} height={200}>
             {title && (
@@ -74,7 +88,7 @@ export const Card = ({
         {...otherProps}
       >
         <CardBody>
-          {image && <Image src={imageUrl} alt={alt} borderRadius="lg" />}
+          {image && <Image src={imageUrl} alt={alt} borderRadius="lg" {...imageProps} />}
           <Stack mt="6" spacing="3">
             {title && <Heading size="md">{title}</Heading>}
             {description && <Text>{description}</Text>}
@@ -99,6 +113,7 @@ export const Card = ({
               h="150px"
               alt={alt}
               borderRadius="lg"
+              {...imageProps}
             />
           )}
           <Stack mt="6" spacing="3">
