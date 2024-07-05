@@ -100,7 +100,7 @@ export type StrapiUrlParams = {
   filters?: Record<string, any>;
   locale?: string | string[];
   publicationState?: 'live' | 'preview';
-  sort?: string | string[];
+  sort?: Record<string, string>;
   pagination?: {
     total?: number;
     page?: number;

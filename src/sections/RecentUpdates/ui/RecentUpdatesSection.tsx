@@ -1,12 +1,12 @@
 import {Grid} from '@chakra-ui/react';
 import {fetchArticles} from '@/shared/api/getArticles';
 import {ArticleI} from '@/shared/types/article';
-import {CardPropsType} from '@/shared/types/components';
+import {CardPropsType, StrapiUrlParams} from '@/shared/types/components';
 import {Section} from '@/shared/ui';
 import {AboutUsBlock} from './AboutUsBlock/AboutUsBlock';
 import {ActualBlock} from './ActualBlock/ActualBlock';
 
-const urlParamsObject = {
+const urlParamsObject: StrapiUrlParams = {
   populate: {
     category: true,
     imgs: true
@@ -23,12 +23,12 @@ type Props = {
 };
 
 export const RecentUpdatesSection = async ({actualArticles, title1, title2, list1}: Props) => {
-  let actualBlockArticles;
+  let actualBlockArticles: ArticleI[] | [] = [];
   if (actualArticles) {
     actualBlockArticles = actualArticles;
   } else {
-    const {data} = await fetchArticles({urlParamsObject});
-    actualBlockArticles = data;
+    const articles = await fetchArticles({urlParamsObject});
+    actualBlockArticles = articles?.data || [];
   }
 
   return (
