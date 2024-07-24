@@ -67,11 +67,12 @@ export const FacultyCard = ({
         justifyContent="space-between"
       >
         <Image
-          maxW={{base: '100%', xl: '550px'}}
+          maxH={{base: 250, xl: 500}}
+          maxW={{base: '100%', xl: '500px'}}
           borderRadius="lg"
           src={imageUrl}
           h={500}
-          alt={image.alternativeText || title1}
+          alt={image?.alternativeText || title1}
           objectFit="fill"
         />
         <Stack display="flex" flex="1" justifyContent="flex-start" marginTop={{base: '3', sm: '0'}}>
