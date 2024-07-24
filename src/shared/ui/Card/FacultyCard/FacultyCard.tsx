@@ -79,6 +79,7 @@ export const FacultyCard = ({
           <AppLink
             mr="auto"
             textDecoration="underline"
+            whiteSpace="normal"
             href={`/faculties/${slug}`}
             fontSize={{base: 'sm', md: '2xl'}}
           >
