@@ -1,6 +1,6 @@
 import {ArticlesList} from '@/sections/ArticlesList/ArticlesList';
 import {ContactUs} from '@/sections/ContactUs';
-import {Faculties} from '@/sections/Faculties';
+import {FacultiesList} from '@/sections/Faculties/FacultiesList';
 import {FormSection} from '@/sections/Form';
 import {HeroSliderSection} from '@/sections/Hero';
 import {LawsList} from '@/sections/LawsList/LawsList';
@@ -47,7 +47,7 @@ export function sectionRenderer(
     case 'blocks.management':
       return <Management key={index} {...section} />;
     case 'blocks.faculties':
-      return <Faculties key={index} {...section} />;
+      return <FacultiesList key={index} {...section} params={params} />;
     default:
       return null;
   }

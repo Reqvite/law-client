@@ -5,7 +5,7 @@ import {ReactElement} from 'react';
 import {Autoplay, Navigation} from 'swiper/modules';
 import {SwiperProps} from 'swiper/react';
 import {getStrapiMedia} from '@/shared/api/api-helpers';
-import {Faculty} from '@/shared/types/faculty';
+import {FacultyI} from '@/shared/types/faculty';
 import {ManagementI} from '@/shared/types/management';
 import {ManagementCard} from '@/shared/ui/Card/ManagementCard/ManagementCard';
 import {Image} from '@/shared/ui/Image';
@@ -13,7 +13,7 @@ import {AppLink} from '../../AppLink/AppLink';
 import Carousel from '../../Carousel/Carousel';
 import {Loader} from '../../Loader';
 
-type Props = Faculty;
+type Props = FacultyI & {href: string};
 
 const getCarouselConfig = (): SwiperProps => {
   return {
@@ -50,7 +50,7 @@ export const FacultyCard = ({
   managementTitle,
   previewDescription,
   image,
-  slug,
+  href,
   management
 }: Props): ReactElement => {
   const imageUrl = getStrapiMedia(image?.url);
@@ -80,7 +80,7 @@ export const FacultyCard = ({
             mr="auto"
             textDecoration="underline"
             whiteSpace="normal"
-            href={`/faculties/${slug}`}
+            href={href}
             fontSize={{base: 'sm', md: '2xl'}}
           >
             {title1}
