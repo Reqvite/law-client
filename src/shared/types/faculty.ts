@@ -1,5 +1,6 @@
 import {CategoryI} from './category';
 import {ImgDataAttributesType} from './components';
+import {DepartmentI} from './departments';
 import {ManagementI} from './management';
 
 export interface FacultyI {
@@ -12,4 +13,5 @@ export interface FacultyI {
   previewDescription: string;
   image: ImgDataAttributesType;
   management: ManagementI[];
+  departments?: DepartmentI[];
 }

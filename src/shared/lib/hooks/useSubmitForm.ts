@@ -12,7 +12,7 @@ export const useSubmitForm = (
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<undefined | string>(undefined);
 
-  const submitForm = async (values: any, route: string): Promise<any> => {
+  const submitForm = async (values: unknown, route: string): Promise<unknown> => {
     setIsLoading(true);
     setError(undefined);
     try {
@@ -31,10 +31,15 @@ export const useSubmitForm = (
       setIsLoading(false);
       toast.success(message);
       return data;
-    } catch (e: any) {
-      setError(e.message);
+    } catch (e: unknown) {
+      if (e instanceof Error) {
+        setError(e.message);
+        toast.error(e.message);
+      } else {
+        setError('An unknown error occurred');
+        toast.error('An unknown error occurred');
+      }
       setIsLoading(false);
-      toast.error(e.message);
     }
   };
   return {error, isLoading, submitForm};

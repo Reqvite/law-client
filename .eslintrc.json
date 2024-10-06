@@ -1,6 +1,9 @@
 {
   "root": true,
-  "env": {"browser": true, "es2020": true},
+  "env": {
+    "browser": true,
+    "es2020": true
+  },
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
@@ -8,12 +11,25 @@
     "plugin:prettier/recommended",
     "next"
   ],
-  "ignorePatterns": ["dist", ".eslintrc.cjs"],
+  "ignorePatterns": [
+    "dist",
+    ".eslintrc.cjs"
+  ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["react-refresh", "simple-import-sort", "unused-imports"],
+  "plugins": [
+    "react-refresh",
+    "simple-import-sort",
+    "unused-imports"
+  ],
   "rules": {
     "@typescript-eslint/no-explicit-any": "warn",
-    "no-unused-vars": "warn",
+    "no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_"
+      }
+    ],
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
       "warn",
@@ -27,14 +43,21 @@
     "simple-import-sort/imports": [
       "error",
       {
-        "groups": [["^\\u0000", "^@?\\w", "^[^.]", "^\\."]]
+        "groups": [
+          [
+            "^\\u0000",
+            "^@?\\w",
+            "^[^.]",
+            "^\\."
+          ]
+        ]
       }
     ],
     "react/no-children-prop": "warn",
     "react/display-name": "off",
     "simple-import-sort/exports": "error",
     "no-var": "error",
-    "react-refresh/only-export-components": ["warn", {"allowConstantExport": true}],
+    "react-refresh/only-export-components": "off",
     "prettier/prettier": [
       "warn",
       {

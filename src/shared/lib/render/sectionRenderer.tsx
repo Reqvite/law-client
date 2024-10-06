@@ -14,7 +14,7 @@ export function sectionRenderer(
   section: any,
   index: number,
   searchParams?: SearchParams,
-  params?: any
+  params?: unknown
 ) {
   switch (section.__component) {
     case 'blocks.hero':

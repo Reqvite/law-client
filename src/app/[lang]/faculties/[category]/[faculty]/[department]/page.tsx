@@ -1,41 +1,42 @@
 import {Metadata} from 'next';
 import {notFound} from 'next/navigation';
 import {generatePageMetaData} from '@/shared/api/generatePageMetaData';
-import {fetchFaculties} from '@/shared/api/getFaculties';
+import {fetchDepartments} from '@/shared/api/getDepartments';
 import {Section} from '@/shared/ui';
-import {FacultyBlockRendered} from '@/shared/ui/BlocksRenderer';
+import {DepartmentBlockRendered} from '@/shared/ui/BlocksRenderer';
 
-export type FacultyParams = {
+type Params = {
   lang: string;
   category: string;
   faculty: string;
+  department: string;
 };
 
 export async function generateMetadata({params}: {params: {lang: string}}): Promise<Metadata> {
   return await generatePageMetaData({params, pageName: 'Faculties'});
 }
 
-export default async function FacultyRoute({params}: {params: FacultyParams}) {
+export default async function DepartmentRoute({params}: {params: {department: Params}}) {
   const urlParamsObject = {
     filters: {
-      slug: params.faculty
+      slug: params.department
     },
     populate: {
       image: true,
-      departments: {
+      students: {
         populate: {image: true}
       }
     }
   };
-  const faculty = await fetchFaculties({urlParamsObject});
+  const department = await fetchDepartments(urlParamsObject);
 
-  if (!faculty?.data[0]) {
+  if (!department?.data[0]) {
     notFound();
   }
 
   return (
     <Section>
-      <FacultyBlockRendered faculty={faculty.data[0]} params={params} />
+      <DepartmentBlockRendered {...department?.data[0]} />
     </Section>
   );
 }

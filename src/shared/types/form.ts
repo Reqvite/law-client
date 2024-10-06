@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import {LabelOptionsI} from '@/shared/types/options';
 
 export enum FormVariantsEnum {

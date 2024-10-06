@@ -12,7 +12,7 @@ interface UsePaginationOptions {
 interface PaginationState {
   currentPage: number;
   totalPages: number;
-  goToPage: (page: number) => void;
+  goToPage: (_page: number) => void;
   nextPage: () => void;
   prevPage: () => void;
   canNextPage: boolean;

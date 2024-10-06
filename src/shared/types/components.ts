@@ -47,9 +47,9 @@ export type CardPropsType = {
   title?: string;
   description?: string;
   href?: string;
-  list?: any;
+  list?: unknown;
   createdAt: string;
-  button?: any;
+  button?: unknown;
 };
 
 export type ImgDataAttributesType = {
@@ -58,7 +58,7 @@ export type ImgDataAttributesType = {
   caption: string | null;
   width: number;
   height: number;
-  formats: any;
+  formats: unknown;
   hash: string;
   ext: string;
   mime: string;
@@ -66,7 +66,7 @@ export type ImgDataAttributesType = {
   url: string;
   previewUrl: string | null;
   provider: string;
-  provider_metadata: any | null;
+  provider_metadata: unknown | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -77,7 +77,7 @@ export type FileDataAttributesType = {
   caption: string | null;
   width: number;
   height: number;
-  formats: any;
+  formats: unknown;
   hash: string;
   ext: string;
   mime: string;
@@ -85,7 +85,7 @@ export type FileDataAttributesType = {
   url: string;
   previewUrl: string | null;
   provider: string;
-  provider_metadata: any | null;
+  provider_metadata: unknown | null;
   createdAt: string;
   updatedAt: string;
 };
@@ -96,8 +96,8 @@ export type ImgDataType = {
 };
 
 export type StrapiUrlParams = {
-  populate?: string | Record<string, any>;
-  filters?: Record<string, any>;
+  populate?: string | Record<string, unknown>;
+  filters?: Record<string, unknown>;
   locale?: string | string[];
   publicationState?: 'live' | 'preview';
   sort?: Record<string, string>;

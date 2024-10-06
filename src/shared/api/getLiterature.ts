@@ -4,7 +4,7 @@ import {fetchAPI} from './fetch-api';
 
 type Props = {
   urlParamsObject?: StrapiUrlParams;
-  options?: Record<string, any>;
+  options?: Record<string, unknown>;
   lang?: string;
 };
 

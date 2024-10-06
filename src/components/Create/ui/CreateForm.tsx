@@ -11,7 +11,7 @@ type Props = {
   options: FormOption<FormVariantsEnum>[];
   submitButton: ButtonType;
   component?: ReactElement;
-  transformData?: (data: any) => void;
+  transformData?: (_data: any) => void;
 };
 
 // const createData = (data: any) => {

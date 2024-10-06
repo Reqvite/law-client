@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
   if (pathname === '/googlec8e556cee04655b8.html') {
     return;
   }
-  if (pathname.includes(i18n.defaultLocale)) {
+  if (pathname.split('/')[1] === i18n.defaultLocale) {
     const newPathname = pathname.split('/');
     newPathname.splice(1, 1);
     return NextResponse.redirect(
