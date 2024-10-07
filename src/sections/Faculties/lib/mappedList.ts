@@ -11,7 +11,7 @@ export const mappedList = (list?: FacultyI[]): any[] => {
     title2: el?.title2,
     managementTitle: el?.managementTitle,
     previewDescription: el?.previewDescription,
-    href: `/faculties/${el?.category?.slug}/${el?.slug}`,
+    href: `/faculties/${el?.category?.slug || 'all'}/${el?.slug}`,
     image: el?.image,
     management: el?.management
   }));
