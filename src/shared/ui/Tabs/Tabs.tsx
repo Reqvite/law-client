@@ -5,7 +5,7 @@ import {TabOptionsI} from '@/shared/types/options';
 
 type Props<T> = Omit<TabsProps, 'children' | 'onChange'> & {
   options: TabOptionsI[];
-  onChange?: (value: T) => void;
+  onChange?: (_value: T) => void;
 };
 
 export const AppTabs = <T extends string>({

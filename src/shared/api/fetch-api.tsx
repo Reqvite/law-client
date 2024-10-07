@@ -13,7 +13,7 @@ export async function fetchAPI(path: string, urlParamsObject = {}, options = {})
       },
       ...options
     };
-    const queryString = qs.stringify(urlParamsObject);
+    const queryString = qs.stringify(urlParamsObject, {encodeValuesOnly: true});
     const requestUrl = `${getStrapiURL(`/api${path}${queryString ? `?${queryString}` : ''}`)}`;
     const response = await fetch(requestUrl, mergedOptions);
     const data = await response.json();

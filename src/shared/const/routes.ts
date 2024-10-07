@@ -15,6 +15,10 @@ export const Routes = {
     url: '/laws',
     name: 'Закони'
   },
+  faculties: {
+    url: '/faculties',
+    name: 'Факультети'
+  },
   // ARTICLES
   articles: {
     url: '/articles',

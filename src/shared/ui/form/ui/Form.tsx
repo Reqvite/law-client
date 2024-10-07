@@ -12,8 +12,8 @@ type Props<T> = BoxProps & {
   options: FormOption<FormVariantsEnum>[];
   formValidationSchema?: Resolver<any>;
   defaultValues: T;
-  onSubmit: (data: T) => void;
-  transformData?: (data: T) => void;
+  onSubmit: (_data: T) => void;
+  transformData?: (_data: T) => void;
   isLoading?: boolean;
   withCancel?: boolean;
   onCancel?: () => void;

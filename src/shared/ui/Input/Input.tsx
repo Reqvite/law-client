@@ -63,7 +63,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           </FormLabel>
         )}
         <InputGroup>
-          {leftIcon && <InputLeftElement pointerEvents="none" children={leftIcon} />}
+          {leftIcon && <InputLeftElement pointerEvents="none">{leftIcon}</InputLeftElement>}
           <ChakraInput
             readOnly={readOnly}
             autoComplete="off"

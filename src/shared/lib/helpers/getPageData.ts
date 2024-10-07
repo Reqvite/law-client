@@ -10,7 +10,7 @@ export interface GetPageDataParams {
 }
 
 export interface PageData {
-  sections: any;
+  sections: unknown;
   h1: string;
 }
 
@@ -22,7 +22,7 @@ export const getPageData = async ({
   const page = await getPageBySlug(pageName, params.lang, urlParamsObject);
   if (page?.data?.length === 0) return null;
   const contentSections = page?.data[0]?.sections;
-  const sections = contentSections.map((section: any, index: number) =>
+  const sections = contentSections.map((section: unknown, index: number) =>
     sectionRenderer(section, index, searchParams, params)
   );
 

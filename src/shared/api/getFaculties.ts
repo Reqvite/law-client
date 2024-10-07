@@ -1,5 +1,5 @@
 import {StrapiUrlParams} from '../types/components';
-import {LawI} from '../types/law';
+import {FacultyI} from '../types/faculty';
 import {fetchAPI} from './fetch-api';
 
 type Props = {
@@ -8,12 +8,14 @@ type Props = {
   lang?: string;
 };
 
-export async function fetchLaws({
+export async function fetchFaculties({
   urlParamsObject = {},
   options = {}
-}: Props): Promise<{data: LawI[]; meta: {pagination: StrapiUrlParams['pagination']}} | undefined> {
+}: Props): Promise<
+  {data: FacultyI[]; meta: {pagination: StrapiUrlParams['pagination']}} | undefined
+> {
   try {
-    const path = `/laws`;
+    const path = `/faculties`;
     const responseData = await fetchAPI(path, urlParamsObject, options);
     return responseData;
   } catch (error) {
