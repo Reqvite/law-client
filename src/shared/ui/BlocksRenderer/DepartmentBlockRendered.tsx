@@ -1,10 +1,12 @@
 'use client';
 import {Box, Flex, Grid, Heading, Text} from '@chakra-ui/react';
+import {BlocksRenderer} from '@strapi/blocks-react-renderer';
 import {ReactElement} from 'react';
 import {Section} from '@/shared/ui';
-import {Image} from '@/shared/ui/Image';
 import {getStrapiMedia} from '../../api/api-helpers';
 import {DepartmentWithAttributesI} from '../../types/departments';
+import {AppLink} from '../AppLink/AppLink';
+import {Image} from '../Image';
 
 export const DepartmentBlockRendered = (department: DepartmentWithAttributesI): ReactElement => {
   return (
@@ -15,7 +17,51 @@ export const DepartmentBlockRendered = (department: DepartmentWithAttributesI): 
         </Heading>
         <Flex direction={{base: 'column', md: 'row'}} align="flex-start">
           <Box flex="3" pr={{md: 8}} mb={{base: 8, md: 0}}>
-            <Text fontSize="lg">{department.attributes.description}</Text>
+            <BlocksRenderer
+              content={department.attributes.description}
+              blocks={{
+                image: ({image}) => {
+                  return (
+                    <Box>
+                      <Image
+                        py={2}
+                        mx="auto"
+                        src={image.url}
+                        width={1200}
+                        height={500}
+                        borderRadius="10px"
+                        objectFit="contain"
+                        alt={image.alternativeText || ''}
+                      />
+                      {image.caption && (
+                        <Text fontSize="md" color="gray.600">
+                          {image.caption}
+                        </Text>
+                      )}
+                    </Box>
+                  );
+                },
+                heading: ({children, level}) => {
+                  switch (level) {
+                    case 1:
+                      return <Heading as="h2">{children}</Heading>;
+                    case 2:
+                      return <Heading variant="h2">{children}</Heading>;
+                    case 3:
+                      return <Heading variant="h3">{children}</Heading>;
+                    case 4:
+                      return <Heading variant="h4">{children}</Heading>;
+                    case 5:
+                      return <Heading variant="h5">{children}</Heading>;
+                    case 6:
+                      return <Heading variant="h6">{children}</Heading>;
+                    default:
+                      return <Heading variant="h2">{children}</Heading>;
+                  }
+                },
+                link: ({children, url}) => <AppLink href={url}>{children}</AppLink>
+              }}
+            />
           </Box>
           <Box flex="1.5" textAlign="right">
             <Image

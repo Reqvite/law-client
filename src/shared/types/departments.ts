@@ -1,3 +1,4 @@
+import {BlocksContent} from '@strapi/blocks-react-renderer';
 import {ImgDataAttributesType} from './components';
 import {DataWithAttributesI} from './dataWithAttributes';
 import {StudentWithAttributesI} from './student';
@@ -17,7 +18,7 @@ export interface DepartmentWithAttributesI {
     title: string;
     slug: string;
     previewDescription: string;
-    description: string;
+    description: BlocksContent;
     image: DataWithAttributesI<ImgDataAttributesType>;
     students?: {
       data: StudentWithAttributesI[];

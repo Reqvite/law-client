@@ -67,7 +67,7 @@ export const FacultyBlockRendered = ({
                 </Box>
                 <Box maxW="100%" mx="auto">
                   <Text fontSize="sm" textAlign="left">
-                    {department.description}
+                    {department.previewDescription}
                   </Text>
                 </Box>
               </Box>
