@@ -9,7 +9,7 @@ export const mappedList = (list?: ArticleI[]): any[] => {
     description: el?.previewDescription,
     title: el?.title,
     styleVariant: 'medium',
-    href: `/articles/${el?.category?.slug}/${el?.slug}`,
+    href: `/articles/${el?.category?.slug || 'all'}/${el?.slug}`,
     image: el?.imgs?.[0],
     createdAt: el.createdAt
   }));
